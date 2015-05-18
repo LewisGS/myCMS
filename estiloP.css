@@ -1,0 +1,25 @@
+
+/*Cambio de contenido del parrafo*/
+.posicionTextArea{
+    position:relative;
+    left:300px; 
+    bottom:170px;
+}
+/*Cambio del boton del textarea del parrafo*/
+.posicionBotonTa{
+    position:relative; 
+    left:300px; 
+    bottom:165px;
+    
+}
+/*POsicion del contenido del text area de  la cabecera*/
+.posicionTextArea2{
+    position:relative;
+    top:20px;
+}
+/*posicion del boton de el textarea de el cambio de cabecera*/
+.posicion{
+    position:relative; 
+   
+    top:20px;
+}
