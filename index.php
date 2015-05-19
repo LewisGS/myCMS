@@ -1,33 +1,4 @@
 <?php
-//echo "<ul>";
-//$directorio = opendir("./");
-//while ($archivo = readdir($directorio)) {
-//    $nombreArch = ucwords($archivo);
-//    $nombreArch = str_replace("..", "Atras", $nombreArch);
-//    echo "<ul><li><a href='$archivo'></li>";
-//    echo "$nombreArch</ul>";
-//}
-//closedir($directorio);
-//echo "</ul>";
-
-
-$directorioInicial = "./";    //Especifica el directorio a leer
-$rep = opendir($directorioInicial);    //Abrimos el directorio
-echo "<ul>";
-while ($todosArchivos = readdir($rep)) {  //Leemos el arreglo de archivos contenidos en el directorio: readdir recibe como parametro el directorio abierto
-    if ($todosArchivos != '..' && $todosArchivos != '.' && $todosArchivos != '') {
-        echo "<li>";
-//$arc Contiene el nombre del archivo contenido dentro del directorio
-        echo "<a href=" . $directorioInicial . "/" . $todosArchivos . " target='_blank'>" . $todosArchivos . "</a><br />"; //Imprimimos el nombre del archivo con un link
-        echo "</li>";
-    }
-}
-closedir($rep);     //Cerramos el directorio
-clearstatcache();    //Limpia la caché de estado de un archivo
-echo "</ul>";
-
-
-
 
 
 $url = 'prueba2.html';
@@ -44,6 +15,24 @@ if (isset($_GET['textarea'])) {
 
     fclose($archivo);
 }
+
+$directorioInicial = "./";    //Especifica el directorio a leer
+$rep = opendir($directorioInicial);    //Abrimos el directorio
+echo "<ul>";
+while ($todosArchivos = readdir($rep)) {  //Leemos el arreglo de archivos contenidos en el directorio: readdir recibe como parametro el directorio abierto
+    if ($todosArchivos != '..' && $todosArchivos != '.' && $todosArchivos != '' ) {
+        echo "<li>";
+//$arc Contiene el nombre del archivo contenido dentro del directorio
+     
+        echo "<a href=" . $directorioInicial . "/" . $todosArchivos . " target='probando'>" . $todosArchivos . "</a><br />"; //Imprimimos el nombre del archivo con un link
+        echo "</li>";
+    }
+}
+closedir($rep);     //Cerramos el directorio
+clearstatcache();    //Limpia la caché de estado de un archivo
+echo "</ul>";
+
+
 ?>
 
 <html>
@@ -79,11 +68,6 @@ if (isset($_GET['textarea'])) {
 
         <script type="text/javascript">
 
-
-
-
-
-
             $(document).ready(function () {
 
 
@@ -113,19 +97,16 @@ if (isset($_GET['textarea'])) {
                         $("textarea").text(contenido);
 
                     });
-
-
-
-
-
-
-
-
-
-
-
-
                 });
+                
+              
+                
+                
+                
+                
+                
+                
+                
             });
         </script>
 
