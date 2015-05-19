@@ -4,16 +4,16 @@
     display:inline-block;
     margin:0 6px;
     padding:7px 20px 7px;
-    
+
     color:#333;
     text-decoration:none;
     text-shadow: 0 1px 1px #FFF;
     border:1px solid #ccc;    
-     /* En esta parte vamos a redondear los bordes del boton - Border Radius */
+    /* En esta parte vamos a redondear los bordes del boton - Border Radius */
     -webkit-border-radius:4px;
     -moz-border-radius:4px;
     border-radius:4px;
-     /* Con estas propiedades crreamos un fondo degradado - Background Gradient */
+    /* Con estas propiedades crreamos un fondo degradado - Background Gradient */
     background:-webkit-linear-gradient(top, #fefefe, #e5e5e5); /* Para que funcione esta propiedad en Chrome 10+ */
     background: -moz-linear-gradient(top, #fefefe, #e5e5e5); /* Para que funcione esta propiedad en Firefox 3.6+ */
     background: -ms-linear-gradient(top, #fefefe, #e5e5e5); /* Para que funcione esta propiedad en IE10 */
@@ -31,13 +31,13 @@
 /*Efecto que tendra el boton cuando pasemos nuestro puntero por encima de el*/
 .button:hover{
     border-color:#adcce2; /* Modificamos el color del borde */
- 
+
     /* Cambiamos los colores del fondo degradado */
     background:-webkit-linear-gradient(top, #fefefe, #f1f1f1); /* Chrome 10+ */
     background:   -moz-linear-gradient(top, #fefefe, #f1f1f1); /* Firefox 3.6+ */
     background:    -ms-linear-gradient(top, #fefefe, #f1f1f1); /* IE10 */
     background:        linear-gradient(top, #fefefe, #f1f1f1);
- 
+
     /* Modificamos las propiedades del Box Shadow para dar efecto al boton */
     -webkit-box-shadow:inset 0 1px 0 rgba(255,255,255, .3), inset 0 0 0 1px rgba(255,255,255, .6), 0 1px 6px rgba(36, 168, 229, .3);
     -moz-box-shadow:inset 0 1px 0 rgba(251,247,193, .3), inset 0 0 0 1px rgba(251,247,193, .3), 0 1px 6px rgba(36, 168, 229, .3);
@@ -45,21 +45,21 @@
 }
 /*Vamos a hacer el iframe responsive aplicandole las distintas propiedades segun va haciendose mas pequeño o más grande*/
 .contenedor-responsive {
-  position: relative;
-  padding-bottom: 56.25%;
-  padding-top: 30px;
-  height: 0;
-  overflow: hidden;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
 }
 
 .contenedor-responsive iframe,
 .contenedor-responsive object,
 .contenedor-responsive embed {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 /*Propiedades del que contiene las lista de html*/
@@ -69,11 +69,17 @@
     text-align: center;
     text-align: justify;
     font-family: Times New Roman, serif;
-    width: 180px;
+    width: 200px;
     font-size: large;
     
+    /*Bordes de la caja*/ 
     -webkit-border-radius:4px;
     -moz-border-radius:4px;
     border-radius:4px;
     
+    /*Aplicamos algo de sombras*/
+    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255, .3), inset 0 0 0 1px rgba(255,255,255, .6), 0 1px 2px rgba(0, 0, 0, .1);
+    -moz-box-shadow: inset 0 1px 0 rgba(255,255,255, .3), inset 0 0 0 1px rgba(255,255,255, .6), 0 1px 2px rgba(0, 0, 0, .1);
+    box-shadow: inset 0 1px 0 rgba(255,255,255, .3), inset 0 0 0 1px rgba(255,255,255, .6), 0 1px 2px rgba(0, 0, 0, .1);
+
 }

@@ -84,7 +84,7 @@ if (isset($_POST['textarea'])) {
 
 
             $(document).ready(function () {
-                
+
 //                Primero escondemos la lista para que no se muestre hasta
 //                que no hagamos "click" en el botón de mostrar
                 $("#acordeon").hide();
@@ -93,7 +93,7 @@ if (isset($_POST['textarea'])) {
                         duration: 1050
                     });
                 });
-                
+
 //                Aqui cargamos el iframe llamando a su identificador
                 $("#probando").load(function () {
 
