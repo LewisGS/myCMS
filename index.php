@@ -1,20 +1,17 @@
 <?php
 $directorioInicial = "./";    //Especifica el directorio a leer
 $rep = opendir($directorioInicial);    //Abrimos el directorio
-echo "<div id='acordeon'>";
+echo "<div class='button' id='mostrar'>Mostrar archivos</div>";
+echo "<div id='acordeon' class='propiedadesCaja'>";
 echo "<ul>";
 while ($todosArchivos = readdir($rep)) {  //Leemos el arreglo de archivos contenidos en el directorio: readdir recibe como parametro el directorio abierto
-    if ($todosArchivos != '..' && $todosArchivos != '.' && $todosArchivos != '' && $todosArchivos != 'index.php' && $todosArchivos != '.git') {
-        echo "<div>";
-        echo "<li>";
-//$arc Contiene el nombre del archivo contenido dentro del directorio     
-        echo '<p>'."/"."<a href=" . $directorioInicial . "/" . $todosArchivos . " target='probando'>" . $todosArchivos . "</a></p><br />"; //Imprimimos el nombre del archivo con un link
-        echo "</li>";
-        echo "</div>";
+    if ($todosArchivos != '..' && $todosArchivos != '.' && $todosArchivos != '' && strpos($todosArchivos, '.html') && !is_dir($todosArchivos)) {
+
+        echo "<li><a href=" . $directorioInicial . "/" . $todosArchivos . " target='probando'>" . $todosArchivos . "</a></li>"; //Imprimimos el nombre del archivo con un link
     }
 }
 closedir($rep);     //Cerramos el directorio
-//clearstatcache();    //Limpia la caché de estado de un archivo
+clearstatcache();    //Limpia la caché de estado de un archivo
 echo "</ul>";
 echo "</div>";
 
@@ -40,8 +37,8 @@ if (isset($_POST['textarea'])) {
         <title>index</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-         <!--        librerias jquery UI-->
+
+        <!--        librerias jquery UI-->
         <link rel='stylesheet' href="css/jquery-ui.css">
         <link rel='stylesheet' href="css/jquery-ui.min.css">
         <link rel='stylesheet' href="css/jquery-ui.structure.css">
@@ -55,7 +52,7 @@ if (isset($_POST['textarea'])) {
     </head>
     <body>
         <div>
-            <h3>Haga "click" encima del contenido a modificar</h3>
+            <h3>Haga "click" encima del contenido a modificar y confirme los cambios</h3>
         </div>
 
 
@@ -74,6 +71,10 @@ if (isset($_POST['textarea'])) {
 
         </form>
 
+        <!--Librerias para Jquery UI-->
+        <script src="js/jquery-ui.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+
 
         <script type="text/javascript">
 
@@ -83,10 +84,17 @@ if (isset($_POST['textarea'])) {
 
 
             $(document).ready(function () {
-
-
-
-
+                
+//                Primero escondemos la lista para que no se muestre hasta
+//                que no hagamos "click" en el botón de mostrar
+                $("#acordeon").hide();
+                $("#mostrar").click(function () {
+                    $("#acordeon").toggle({
+                        duration: 1050
+                    });
+                });
+                
+//                Aqui cargamos el iframe llamando a su identificador
                 $("#probando").load(function () {
 
 //                    Cambiamos cualquier de todas las etiquetas aqui marcadas 
