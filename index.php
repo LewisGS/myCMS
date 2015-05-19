@@ -1,38 +1,38 @@
 <?php
+$directorioInicial = "./";    //Especifica el directorio a leer
+$rep = opendir($directorioInicial);    //Abrimos el directorio
+echo "<div id='acordeon'>";
+echo "<ul>";
+while ($todosArchivos = readdir($rep)) {  //Leemos el arreglo de archivos contenidos en el directorio: readdir recibe como parametro el directorio abierto
+    if ($todosArchivos != '..' && $todosArchivos != '.' && $todosArchivos != '' && $todosArchivos != 'index.php' && $todosArchivos != '.git') {
+        echo "<div>";
+        echo "<li>";
+//$arc Contiene el nombre del archivo contenido dentro del directorio     
+        echo '<p>'."/"."<a href=" . $directorioInicial . "/" . $todosArchivos . " target='probando'>" . $todosArchivos . "</a></p><br />"; //Imprimimos el nombre del archivo con un link
+        echo "</li>";
+        echo "</div>";
+    }
+}
+closedir($rep);     //Cerramos el directorio
+//clearstatcache();    //Limpia la caché de estado de un archivo
+echo "</ul>";
+echo "</div>";
 
 
-$url = 'prueba2.html';
+$url = '';
 
-if (isset($_GET['textarea'])) {
+if (isset($_POST['textarea'])) {
     // means submit clicked!
 
-    $salida = $_GET['textarea'];
+    $salida = $_POST['textarea'];
 
-    $archivo = fopen($url, "w+");
+    $archivo = fopen($url, "w");
     fputs($archivo, $salida);
 
 
 
     fclose($archivo);
 }
-
-$directorioInicial = "./";    //Especifica el directorio a leer
-$rep = opendir($directorioInicial);    //Abrimos el directorio
-echo "<ul>";
-while ($todosArchivos = readdir($rep)) {  //Leemos el arreglo de archivos contenidos en el directorio: readdir recibe como parametro el directorio abierto
-    if ($todosArchivos != '..' && $todosArchivos != '.' && $todosArchivos != '' ) {
-        echo "<li>";
-//$arc Contiene el nombre del archivo contenido dentro del directorio
-     
-        echo "<a href=" . $directorioInicial . "/" . $todosArchivos . " target='probando'>" . $todosArchivos . "</a><br />"; //Imprimimos el nombre del archivo con un link
-        echo "</li>";
-    }
-}
-closedir($rep);     //Cerramos el directorio
-clearstatcache();    //Limpia la caché de estado de un archivo
-echo "</ul>";
-
-
 ?>
 
 <html>
@@ -40,8 +40,17 @@ echo "</ul>";
         <title>index</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+         <!--        librerias jquery UI-->
+        <link rel='stylesheet' href="css/jquery-ui.css">
+        <link rel='stylesheet' href="css/jquery-ui.min.css">
+        <link rel='stylesheet' href="css/jquery-ui.structure.css">
+        <link rel='stylesheet' href="css/jquery-ui.structure.min.css">
+        <link rel='stylesheet' href="css/jquery-ui.theme.css">
+        <link rel='stylesheet' href="css/jquery-ui.theme.min.css">
 
         <link rel="stylesheet" type="text/css" href="estiloP.css">
+
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     </head>
     <body>
@@ -50,17 +59,17 @@ echo "</ul>";
         </div>
 
 
-        <form id="formulario" action="" method="GET" enctype="multipart/form-data"> 
+        <form id="formulario" action="" method="POST" enctype="multipart/form-data"> 
 
 
             <div>
-                <input id="botonGuardar" type="submit" name="submit" value="Confirmar cambios" />
+                <input class="button" id="botonGuardar" type="submit" name="submit" value="Confirmar cambios realizados" />
             </div>
 
 
-
-            <iframe id="probando" src="<?php echo $url; ?>" scrolling="auto" height="700" width="800" marginheight="0" marginwidth="0" name="probando"></iframe>
-
+            <div class="contenedor-responsive position">
+                <center><iframe  id="probando" src="<?php echo $url; ?>" scrolling="auto" height="700" width="700" marginheight="0" marginwidth="0" name="probando"></iframe></center>
+            </div>
             <textarea name="textarea" rows="4" cols="50" style="display:none;"></textarea>
 
         </form>
@@ -68,20 +77,23 @@ echo "</ul>";
 
         <script type="text/javascript">
 
+
+
+
+
+
             $(document).ready(function () {
+
 
 
 
                 $("#probando").load(function () {
 
-
-
-
-
 //                    Cambiamos cualquier de todas las etiquetas aqui marcadas 
 //                      en las que se ha hecho click.
 
                     $("#probando").contents().find("p,h1,h2,h3,h4,h5,h6,span").on("click", function () {
+
                         var textoIntroducido = prompt("Introduce el contenido nuevo: ");
                         $(this).text(textoIntroducido);
                         var contenido = $("#probando").contents().find('html').prop('outerHTML');
@@ -98,15 +110,16 @@ echo "</ul>";
 
                     });
                 });
-                
-              
-                
-                
-                
-                
-                
-                
-                
+
+
+
+
+
+
+
+
+
+
             });
         </script>
 

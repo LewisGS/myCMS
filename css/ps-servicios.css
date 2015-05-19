@@ -1,0 +1,278 @@
+
+
+.employee .image {
+  background: #f2f2f2;
+  display: block;
+  line-height: 0;
+  margin: 0;
+  height: auto;
+}
+/*Con esto quitaremos el borde izquierdo del megamenu*/
+.header .primary .megamenu > .sub .sub-list + .promo-block {
+  border-left: none;
+  border-right: 0 none;
+}
+
+
+/*Propiedades de la imagen que está al darse la vuelta cada una de las casillas*/
+.employee .employee-hover .imageIcono {
+
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    display: block;
+
+    float: right;
+    line-height: 0;
+    margin: 4px 0 0 0px;
+    overflow: hidden;
+    position: relative;
+    top: -20px;
+    right:  -15px;
+    
+    z-index: 1;
+}
+
+
+/*Propiedades icono pequeño del reverso de la imagen*/
+.livicon.metro-bgIcono {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    margin-bottom: 4px;
+    padding: 5px 5px 10px 10px;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.rotation .employee-hover {
+  display: block;
+  height: inherit;
+  transform: rotateY(-180deg);
+  -webkit-transform: rotateY(-180deg);
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  -moz-transform: rotateY(-180deg);
+  -moz-transform-style: preserve-3d;
+  -moz-backface-visibility: hidden;
+  -o-transition: all .6s ease-in-out;
+  -ms-transition: all .6s ease-in-out;
+  -moz-transition: all .6s ease-in-out;
+  -webkit-transition: all .6s ease-in-out;
+  transition: all .6s ease-in-out;
+  z-index: 13;
+  
+}
+.rotation.hover .employee-hover {
+   
+  -moz-transform: rotateX(0deg) rotateY(0deg);
+  -moz-transition-delay: .2s;
+  -ms-transition-delay: .2s;
+  -o-transition-delay: .2s;
+  transform: rotateY(0deg);
+  transition-delay: .2s;
+  -webkit-transform: rotateX(0deg) rotateY(0deg);
+  -webkit-transition-delay: .2s;
+  z-index: 46;
+  
+
+  
+  
+}
+
+.employee.rotation{
+    
+    transition-property: all;
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+    transition:all 1s;
+    
+    
+}
+/*contenedor de la altura total*/
+.employee22.rotation22:hover{
+height: 350px;
+
+}
+/*altura que le decimos en la que debe quedarse*/
+.ajuste {
+    height: 320px;
+  -webkit-transition-duration:height 2s;
+    transition: height 2s;
+}
+
+/*contenedor de la altura total*/
+.employee23.rotation23:hover{
+height: 290px;
+
+}
+/*altura que le decimos en la que debe quedarse ventana hover*/
+.ajuste23 {
+    height: 320px;
+  -webkit-transition-duration:height 2s;
+    transition: height 2s;
+}
+
+/*contenedor de la altura total ventana hover*/
+.employee24.rotation24:hover{
+height: 450px;
+
+}
+/*altura que le decimos en la que debe quedarse ventana hover*/
+.ajuste24 {
+    height: 350px;
+  -webkit-transition-duration:height 2s;
+    transition: height 2s;
+}
+
+/*Ajustes de las ventanas con movimiento*/
+.muevete{
+position:relative;
+margin-left: 100px;
+    
+}
+/*Ajustes de las ventanas con movimiento*/
+.nuevaPosicion{
+    position:relative;
+    margin-top: 40px;
+    resize:horizontal;
+}
+
+/*redondear iconos que aparecen en el megamenu*/
+.redondeamelo{
+    border-radius: 200px;
+    
+}
+
+/*Ajustar tamaño del mega menu*/
+ .header .primary .megamenu > .sub {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  left: -15px;
+  padding: 0;
+  width: 665px;
+  z-index: 800;
+}
+ .header .primary .megamenu > .sub.caja-4 {
+  width: 600px;
+}
+
+/*Ajustar tamaño del contenedor de la foto*/
+.header .primary .megamenu.promo > .sub .sub-list {
+  width: 66%;
+}
+
+/*Ajustamos el ancho para que los cuadros ocupen todo el megamenu 
+este sera especifico del megamenu de Servicios*/
+.header .primary .megamenu.promo > .sub .sub-list.caja-4 {
+  width: 100%;
+}
+
+/*Ajustamos el ancho entre las columnas*/
+.header .primary .megamenu.four-columns > .sub .sub-list {
+  width: 100%;
+}
+
+  /* === Button Style === */ 
+ button.submit2 { 
+     background-color: #68b12f; 
+     background: -webkit-gradient(linear, left top, left bottom, from(#68b12f), to(#50911e)); 
+     background: -webkit-linear-gradient(top, #68b12f, #50911e); 
+     background: -moz-linear-gradient(top, #68b12f, #50911e); 
+     background: -ms-linear-gradient(top, #68b12f, #50911e); 
+     background: -o-linear-gradient(top, #68b12f, #50911e); 
+     background: linear-gradient(top, #68b12f, #50911e); 
+     border: 1px solid #509111; 
+     border-bottom: 1px solid #5b992b; 
+     border-radius: 3px; 
+     -webkit-border-radius: 3px; 
+     -moz-border-radius: 3px; 
+     -ms-border-radius: 3px; 
+     -o-border-radius: 3px; 
+     box-shadow: inset 0 1px 0 0 #9fd574; 
+     -webkit-box-shadow: 0 1px 0 0 #9fd574 inset; 
+     -moz-box-shadow: 0 1px 0 0 #9fd574 inset; 
+     -ms-box-shadow: 0 1px 0 0 #9fd574 inset; 
+     -o-box-shadow: 0 1px 0 0 #9fd574 inset; 
+     color: white; 
+     font-weight: bold; 
+     padding: 6px 20px; 
+     text-align: center; 
+     text-shadow: 0 -1px 0 #396715; } 
+ button.submit2:hover { 
+     opacity: .85; 
+     cursor: pointer; 
+ } 
+ button.submit2:active { 
+     border: 1px solid #20911e; 
+     box-shadow: 0 0 10px 5px #356b0b inset; 
+     -webkit-box-shadow: 0 0 10px 5px #356b0b inset; 
+     -moz-box-shadow: 0 0 10px 5px #356b0b inset; 
+     -ms-box-shadow: 0 0 10px 5px #356b0b inset; 
+     -o-box-shadow: 0 0 10px 5px #356b0b inset; 
+ } 
+ 
+ /*Propiedad que hace que en la cabecera nos baje el telefono de forma distinta a la original*/
+.col-xs-1,.col-sm-1,.col-md-1,.col-lg-1,.col-xs-2,.col-sm-2,.col-md-2,.col-lg-2,.col-xs-3,.col-sm-3,.col-md-3,.col-lg-3,.col-xs-4,.col-sm-4,.col-md-4,.col-lg-4,.col-xs-5,.col-sm-5,.col-md-5,.col-lg-5,.col-xs-6,.col-sm-6,.col-md-6,.col-lg-6,.col-xs-7,.col-sm-7,.col-md-7,.col-lg-7,.col-xs-8,.col-sm-8,.col-md-8,.col-lg-8,.col-xs-9,.col-sm-9,.col-md-9,.col-lg-9,.col-xs-10,.col-sm-10,.col-md-10,.col-lg-10,.col-xs-11,.col-sm-11,.col-md-11,.col-lg-11,.col-xs-12,.col-sm-12,.col-md-12,.col-lg-12 {
+	position:relative;
+	min-height:1px;
+	padding-left:15px;
+	padding-right:15px
+}
+
+/*Separación de la notificación con respecto a el botón slide de envio*/
+.separador{
+    top:25px;
+}
+
+
+/*Propiedades para el boton del enviar del formulario*/
+.ps-emailform #carril {
+  height: 32px;
+  width: 256px;
+  background-image: url('../img/png-icons/carril-carril.png');
+  background-repeat: no-repeat;
+}
+ .ps-emailform #movil {
+  height: 32px;
+  width: 112px;
+  background-image: url('../img/png-icons/carril-movil.png');
+  background-repeat: no-repeat;
+  float: left;
+  line-height: 32px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
+}
+.ps-emailform #meta {
+  height: 32px;
+  width: 112px;
+  float: right;
+}
+
+.ps-final {}
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.ps-ayuda {}
+html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/*fin propiedades del boton envio slider*/
+
+/*Borde que hemos dado a la caja contenedora de los checkbox*/
+.cajas{
+  border-width: thin ;
+  border-top: none;
+}

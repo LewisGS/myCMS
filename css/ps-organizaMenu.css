@@ -1,0 +1,330 @@
+/*Ajustar tamaño del mega menu*/
+.header .primary .megamenu>.sub {
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+	left:-15px;
+	padding:0;
+	width:665px;
+	z-index:800;
+}
+/*Con esto quitaremos el borde izquierdo del megamenu*/
+.header .primary .megamenu > .sub .sub-list + .promo-block {
+  border-left: none;
+  border-right: 0 none;
+}
+.header .primary .megamenu>.sub.caja-4 {
+	width: 600px;
+}
+/*Ajustar tamaño del contenedor de la foto*/
+.header .primary .megamenu.promo>.sub .sub-list {
+	width: 66%;
+}
+/*Ajustamos el ancho para que los cuadros ocupen todo el megamenu este sera especifico del megamenu de Servicios*/
+.header .primary .megamenu.promo>.sub .sub-list.caja-4 {
+	width: 100%;
+}
+/*Ajustamos el ancho entre las columnas*/
+.header .primary .megamenu.four-columns>.sub .sub-list {
+	width: 100%;
+}
+/*Fondo de cuadros de imagen de la pestaña productos*/
+.work img {
+	background-color:#FFFFFF;
+	-webkit-box-shadow:0 0px 0px rgba(0,0,0,.0);
+	-moz-box-shadow:0 0px 0px rgba(0,0,0,.0);
+	box-shadow:0 0px 0px rgba(0,0,0,.0);
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	text-align:center;
+	width: 100%;
+        
+}
+/*propiedades de las letras y titulo de productos*/
+/*Le hemos puesto un display none para que pare el efecto de que al pasar por encima salga el titulo*/
+.work .title {
+	bottom:46px;
+	font-size:11px;
+	font-weight:bold;
+	display:none;
+	line-height:20px;
+	margin:0 0 6px;
+	text-align: center;
+        color:#000000;
+        
+}
+/*Desde aqui podremos manejar todas las propiedasdes de la descripción del titulo de los paquetes de productos*/
+.work .description {
+  font-size: 11px;
+  font-style: italic;
+  font-family: Georgia;
+  line-height: 16px;
+  text-align: center;
+  color:#001000;
+  
+}
+
+/*Aqui le ponemos el display none para que cuando pasemos esta vez si nos muestre el titulo*/
+.work:hover .title {
+	display: block;
+        
+}
+/*Tocado el primer 100% para poder quedar los paneles del cuadro de productos en blanco y quitarle el degradado que tenia*/
+.work .shadow {
+  background: -moz-linear-gradient(top, rgba(255,255,255,0) 100%, rgba(255,255,255,0.01) 29%, rgba(0,0,0,0.01) 30%, rgba(0,0,0,0.01) 33%, rgba(0,0,0,0.17) 62%, rgba(0,0,0,0.24) 68%, rgba(0,0,0,0.62) 90%, rgba(0,0,0,0.73) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(29%,rgba(255,255,255,0.01)), color-stop(30%,rgba(0,0,0,0.01)), color-stop(33%,rgba(0,0,0,0.01)), color-stop(62%,rgba(0,0,0,0.17)), color-stop(68%,rgba(0,0,0,0.24)), color-stop(90%,rgba(0,0,0,0.62)), color-stop(100%,rgba(0,0,0,0.73)));
+  background: -webkit-linear-gradient(top, rgba(255,255,255,0) 100%,rgba(255,255,255,0.01) 29%,rgba(0,0,0,0.01) 30%,rgba(0,0,0,0.01) 33%,rgba(0,0,0,0.17) 62%,rgba(0,0,0,0.24) 68%,rgba(0,0,0,0.62) 90%,rgba(0,0,0,0.73) 100%);
+  background: -o-linear-gradient(top, rgba(255,255,255,0) 100%,rgba(255,255,255,0.01) 29%,rgba(0,0,0,0.01) 30%,rgba(0,0,0,0.01) 33%,rgba(0,0,0,0.17) 62%,rgba(0,0,0,0.24) 68%,rgba(0,0,0,0.62) 90%,rgba(0,0,0,0.73) 100%);
+  background: -ms-linear-gradient(top, rgba(255,255,255,0) 100%,rgba(255,255,255,0.01) 29%,rgba(0,0,0,0.01) 30%,rgba(0,0,0,0.01) 33%,rgba(0,0,0,0.17) 62%,rgba(0,0,0,0.24) 68%,rgba(0,0,0,0.62) 90%,rgba(0,0,0,0.73) 100%);
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 100%,rgba(255,255,255,0.01) 29%,rgba(0,0,0,0.01) 30%,rgba(0,0,0,0.01) 33%,rgba(0,0,0,0.17) 62%,rgba(0,0,0,0.24) 68%,rgba(0,0,0,0.62) 90%,rgba(0,0,0,0.73) 100%);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+/*Propiedades texto inferior de las imagenes de productos*/
+.work .description {
+	font-size:15px;
+	font-style:italic;
+	font-family:Georgia;
+	line-height:16px;
+	text-align: center;
+}
+/*Ajustar tamaño del contenedor de la foto*/
+.header .primary .megamenuServicios>.sub .sub-list {
+	width: 20%;
+}
+
+
+/*Tocado para poder tener los iconos de servicios en 4 columnas*/
+@media (min-width:992px) {
+	.col-md-1,.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-6,.col-md-7,.col-md-8,.col-md-9,.col-md-10,.col-md-11,.col-md-12 {
+		float:left
+	}
+	.col-md-12 {
+		width:100%
+	}
+	.col-md-11 {
+		width:91.66666667%
+	}
+	.col-md-10 {
+		width:83.33333333%
+	}
+	.col-md-9 {
+		width:75%
+	}
+	.col-md-8 {
+		width:66.66666667%
+	}
+	.col-md-7 {
+		width:58.33333333%
+	}
+	.col-md-6 {
+		width:50%
+	}
+	.col-md-5 {
+		width:41.66666667%
+	}
+	.col-md-4 {
+		width:25%
+	}
+	.col-md-3 {
+		width:25%
+	}
+	.col-md-2 {
+		width:16.66666667%
+	}
+	.col-md-1 {
+		width:8.33333333%
+	}
+	.col-md-pull-12 {
+		right:100%
+	}
+	.col-md-pull-11 {
+		right:91.66666667%
+	}
+	.col-md-pull-10 {
+		right:83.33333333%
+	}
+	.col-md-pull-9 {
+		right:75%
+	}
+	.col-md-pull-8 {
+		right:66.66666667%
+	}
+	.col-md-pull-7 {
+		right:58.33333333%
+	}
+	.col-md-pull-6 {
+		right:50%
+	}
+	.col-md-pull-5 {
+		right:41.66666667%
+	}
+	.col-md-pull-4 {
+		right:33.33333333%
+	}
+	.col-md-pull-3 {
+		right:25%
+	}
+	.col-md-pull-2 {
+		right:16.66666667%
+	}
+	.col-md-pull-1 {
+		right:8.33333333%
+	}
+	.col-md-pull-0 {
+		right:auto
+	}
+	.col-md-push-12 {
+		left:100%
+	}
+	.col-md-push-11 {
+		left:91.66666667%
+	}
+	.col-md-push-10 {
+		left:83.33333333%
+	}
+	.col-md-push-9 {
+		left:75%
+	}
+	.col-md-push-8 {
+		left:66.66666667%
+	}
+	.col-md-push-7 {
+		left:58.33333333%
+	}
+	.col-md-push-6 {
+		left:50%
+	}
+	.col-md-push-5 {
+		left:41.66666667%
+	}
+	.col-md-push-4 {
+		left:33.33333333%
+	}
+	.col-md-push-3 {
+		left:25%
+	}
+	.col-md-push-2 {
+		left:16.66666667%
+	}
+	.col-md-push-1 {
+		left:8.33333333%
+	}
+	.col-md-push-0 {
+		left:auto
+	}
+	.col-md-offset-12 {
+		margin-left:100%
+	}
+	.col-md-offset-11 {
+		margin-left:91.66666667%
+	}
+	.col-md-offset-10 {
+		margin-left:83.33333333%
+	}
+	.col-md-offset-9 {
+		margin-left:75%
+	}
+	.col-md-offset-8 {
+		margin-left:66.66666667%
+	}
+	.col-md-offset-7 {
+		margin-left:58.33333333%
+	}
+	.col-md-offset-6 {
+		margin-left:50%
+	}
+	.col-md-offset-5 {
+		margin-left:41.66666667%
+	}
+	.col-md-offset-4 {
+		margin-left:33.33333333%
+	}
+	.col-md-offset-3 {
+		margin-left:25%
+	}
+	.col-md-offset-2 {
+		margin-left:16.66666667%
+	}
+	.col-md-offset-1 {
+		margin-left:8.33333333%
+	}
+	.col-md-offset-0 {
+		margin-left:0
+	}
+}
+/*Propiedad que hace que en la cabecera nos baje el telefono de forma distinta a la original*/
+.col-xs-1,.col-sm-1,.col-md-1,.col-lg-1,.col-xs-2,.col-sm-2,.col-md-2,.col-lg-2,.col-xs-3,.col-sm-3,.col-md-3,.col-lg-3,.col-xs-4,.col-sm-4,.col-md-4,.col-lg-4,.col-xs-5,.col-sm-5,.col-md-5,.col-lg-5,.col-xs-6,.col-sm-6,.col-md-6,.col-lg-6,.col-xs-7,.col-sm-7,.col-md-7,.col-lg-7,.col-xs-8,.col-sm-8,.col-md-8,.col-lg-8,.col-xs-9,.col-sm-9,.col-md-9,.col-lg-9,.col-xs-10,.col-sm-10,.col-md-10,.col-lg-10,.col-xs-11,.col-sm-11,.col-md-11,.col-lg-11,.col-xs-12,.col-sm-12,.col-md-12,.col-lg-12 {
+	position:relative;
+	min-height:1px;
+	padding-left:15px;
+	padding-right:15px
+}
+/*Posicion de el cuadro de dirección*/
+.contact-info {
+	margin-top:50px;
+}
+
+/*redoondea del icono del megamenu de servicios*/
+.redondeamelo {
+	border-radius: 200px;
+}
+
+/*Damos color a el Que nos diferencia de Nosotros*/
+.color23{
+    color:#C10841;
+}
+
+/*Propiedades para el boton del enviar del formulario*/
+.ps-emailform #carril {
+  height: 32px;
+  width: 256px;
+  background-image: url('../img/png-icons/carril-carril.png');
+  background-repeat: no-repeat;
+}
+ .ps-emailform #movil {
+  height: 32px;
+  width: 112px;
+  background-image: url('../img/png-icons/carril-movil.png');
+  background-repeat: no-repeat;
+  float: left;
+  line-height: 32px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
+}
+.ps-emailform #meta {
+  height: 32px;
+  width: 112px;
+  float: right;
+}
+
+.ps-final {}
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.ps-ayuda {}
+html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/*fin propiedades del boton envio slider*/
+
+/*validar el formulario*/
+
+
+

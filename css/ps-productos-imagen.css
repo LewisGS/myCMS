@@ -1,0 +1,27 @@
+/*Capa de sombreado para la iamgen principal que contiene un titulo*/
+.ps-fondo {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  font-size: 23px;
+  left: 0;
+  height: 100%;
+  top: 0;
+  padding-top: 200px;
+  text-shadow: 1px 1px #000000;
+  text-align: center;
+  width: 100%;
+}
+
+/*ubicacion del titulo y la capa creada*/
+.text_encima {
+	position: absolute;
+	color: #F7F7F7;
+	margin-top:  auto;
+        margin-left: auto;
+        margin: 0px 15px;
+        width:1170px;
+        
+       
+}
+
+

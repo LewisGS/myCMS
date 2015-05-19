@@ -1,0 +1,64 @@
+/*Todas las media query para redimensainar la imagen para los distintos dispositivos*/
+@media only screen and (max-width : 1200px){
+    .ajustate{
+        width:940px;
+
+    }
+}
+
+@media only screen and (max-width:991px)and (min-width:768px){
+
+    .ajustate{
+        width:720px;
+    }
+}
+@media only screen and (max-width:767px) and (min-width:626px){
+    .ajustate{
+        width: 595px;
+        margin:0px 0px;
+
+
+    }
+    .encoje{
+        width:626px;
+
+    }
+    #letras{
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width:625px) and (min-width:484px)
+{
+    .ajustate{
+    width:470px;
+     margin:0px 0px;
+    }
+    .encoje{
+        width: 500px;
+        
+    }
+    #letras{
+        font-size: 15px;
+    }
+}
+@media only screen and (max-width:483px) and (min-width:310px)
+{
+    .ajustate{
+    width:290px;
+     margin:0px 0px;
+    }
+    .encoje{
+        width: 321px;
+        
+    }
+    #letras{
+        font-size: 15px;
+    }
+}
+/*FIN DE LAS MEDIA QUERY*/
+
+
+
+
+
