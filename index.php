@@ -4,11 +4,11 @@ $directorioInicial = "./";    //Especifica el directorio a leer
 $rep = opendir($directorioInicial);    //Abrimos el directorio
 echo "<div class='button' id='mostrar'>Mostrar archivos</div>";
 echo "<div id='acordeon' class='propiedadesCaja'>";
-echo "<ul>";
+echo "<ul id='listaPaginas'>";
 while ($todosArchivos = readdir($rep)) {  //Leemos el arreglo de archivos contenidos en el directorio: readdir recibe como parametro el directorio abierto
     if ($todosArchivos != '..' && $todosArchivos != '.' && $todosArchivos != '' && strpos($todosArchivos, '.html') && !is_dir($todosArchivos)) {
 
-        echo "<li><a href=" . $directorioInicial . "/" . $todosArchivos . " target='probando'>" . $todosArchivos . "</a></li>"; //Imprimimos el nombre del archivo con un link
+        echo "<li><a id='listaPaginas2' href=" . $directorioInicial . "/" . $todosArchivos . " target='probando'>" . $todosArchivos . "</a></li>"; //Imprimimos el nombre del archivo con un link
     }
 }
 closedir($rep);     //Cerramos el directorio
@@ -17,7 +17,8 @@ echo "</ul>";
 echo "</div>";
 
 
-$url = 'prueba2.html';
+$url = $todosArchivos;
+        
 
 if (isset($_POST['textarea'])) {
     // means submit clicked!
@@ -30,6 +31,7 @@ if (isset($_POST['textarea'])) {
 
 
     fclose($archivo);
+    clearstatcache();
 }
 ?>
 
@@ -99,13 +101,18 @@ if (isset($_POST['textarea'])) {
 //                y nos quede la página en blanco
                 $("#botonGuardar").click(function () {
                     if ($("textarea").val().length < 1) {
-                         swal({   title: "¡Cuidado!",   text: "No has realizado ningun cambio"});
+                        swal({title: "¡Cuidado!", text: "No has realizado ningun cambio"});
                         return false;
                     }
                 });
+                
+                $("#listaPaginas").click(function(e){
+                    var li = e.target.parentNode;
+                    alert(li);
+                });
 
 
-                         
+
 
 
 //                Aqui cargamos el iframe llamando a su identificador
