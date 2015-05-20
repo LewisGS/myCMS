@@ -16,7 +16,7 @@ echo "</ul>";
 echo "</div>";
 
 
-$url = '';
+$url = 'prueba2.html';
 
 if (isset($_POST['textarea'])) {
     // means submit clicked!
@@ -46,7 +46,11 @@ if (isset($_POST['textarea'])) {
         <link rel='stylesheet' href="css/jquery-ui.theme.css">
         <link rel='stylesheet' href="css/jquery-ui.theme.min.css">
 
+        <!--Estilos propios-->
         <link rel="stylesheet" type="text/css" href="estiloP.css">
+
+        <!--Estilos Descargados-->
+        <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     </head>
@@ -74,12 +78,11 @@ if (isset($_POST['textarea'])) {
         <!--Librerias para Jquery UI-->
         <script src="js/jquery-ui.js"></script>
         <script src="js/jquery-ui.min.js"></script>
+        <script src="dist/sweetalert.min.js"></script>
+
 
 
         <script type="text/javascript">
-
-
-
 
 
 
@@ -94,19 +97,46 @@ if (isset($_POST['textarea'])) {
                     });
                 });
 
+
+
 //                Aqui cargamos el iframe llamando a su identificador
                 $("#probando").load(function () {
 
 //                    Cambiamos cualquier de todas las etiquetas aqui marcadas 
 //                      en las que se ha hecho click.
-
                     $("#probando").contents().find("p,h1,h2,h3,h4,h5,h6,span").on("click", function () {
 
-                        var textoIntroducido = prompt("Introduce el contenido nuevo: ");
-                        $(this).text(textoIntroducido);
-                        var contenido = $("#probando").contents().find('html').prop('outerHTML');
-                        $("textarea").text(contenido);
+
+                        swal({
+                            title: "Modificaciones",
+                            text: "Escribe tu nuevo texto:",
+                            type: "input",
+                            showCancelButton: true,
+                            closeOnConfirm: false,
+                            animation: "slide-from-top",
+                            inputPlaceholder: "Write something"}, function (inputValue) {
+                            if (inputValue === false)
+                                return false;
+                            if (inputValue === "") {
+                                swal.showInputError("You need to write something!");
+                                return false;
+                            }
+                            swal("Nice!", "You wrote: " + inputValue, "success");
+                            $(this).text(inputValue);
+                            var contenido = $("#probando").contents().find('html').prop('outerHTML');
+                            $("textarea").text(contenido);
+                        });
+
+
                     });
+
+//                    $("#probando").contents().find("p,h1,h2,h3,h4,h5,h6,span").on("click", function () {
+//
+//                        var textoIntroducido = prompt("Introduce el contenido nuevo: ");
+//                        $(this).text(textoIntroducido);
+//                        var contenido = $("#probando").contents().find('html').prop('outerHTML');
+//                        $("textarea").text(contenido);
+//                    });
 
 
 //                    Cambiamos la imagen al hacer click sobre ella, y poniendo la 
@@ -118,16 +148,6 @@ if (isset($_POST['textarea'])) {
 
                     });
                 });
-
-
-
-
-
-
-
-
-
-
             });
         </script>
 
