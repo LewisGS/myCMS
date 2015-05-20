@@ -59,7 +59,7 @@ if (isset($_POST['textarea'])) {
         </div>
 
 
-        <form id="formulario" action="" method="POST" enctype="multipart/form-data"> 
+        <form id="formulario" name="formulario" action="" method="POST" enctype="multipart/form-data"> 
 
 
             <div>
@@ -94,13 +94,27 @@ if (isset($_POST['textarea'])) {
                         duration: 1050
                     });
                 });
+
+//                Con esta funcion vamos a controlar que el textarea no se mande vacío
+//                y nos quede la página en blanco
+                $("#botonGuardar").click(function () {
+                    if ($("textarea").val().length < 1) {
+                         swal({   title: "¡Cuidado!",   text: "No has realizado ningun cambio"});
+                        return false;
+                    }
+                });
+
+
+                         
+
+
 //                Aqui cargamos el iframe llamando a su identificador
                 $("#probando").load(function () {
 
 //                    Cambiamos cualquier de todas las etiquetas aqui marcadas 
 //                      en las que se ha hecho click.
 
-                  $("#probando").contents().find("p,h1,h2,h3,h4,h5,h6,span").on("click", function (e) {
+                    $("#probando").contents().find("p,h1,h2,h3,h4,h5,h6,span").on("click", function (e) {
                         swal({
                             title: "Modificaciones",
                             text: "Escribe el nuevo texto:",
@@ -127,7 +141,7 @@ if (isset($_POST['textarea'])) {
 
 //                    Cambiamos la imagen al hacer click sobre ella, y poniendo la 
 //                    nueva ruta deseada.
-                    $("#probando").contents().find("img").on("click",function (e) {
+                    $("#probando").contents().find("img").on("click", function (e) {
                         console.log(e);
                         swal({
                             title: "Nuevo archivo",
@@ -144,16 +158,10 @@ if (isset($_POST['textarea'])) {
                                 swal.showInputError("¡No has escrito nada!");
                                 return false;
                             }
-//                          
-//                         
                             swal("¡Muy bien!", "Ruta de la nueva imagen: " + nuevaImagen, "success");
-                            $(e.target).attr('src', nuevaImagen);                         
+                            $(e.target).attr('src', nuevaImagen);
                             var contenido = $("#probando").contents().find('html').prop('outerHTML');
                             $("textarea").text(contenido);
-
-
-
-
                         });
                     });
 
@@ -167,12 +175,7 @@ if (isset($_POST['textarea'])) {
 
 
 
-//                    $("#probando").contents().find("img").click(function () {
-//                        $(this).attr('src', prompt('Introduce la nueva ruta de la imagen deseada :'));
-//                        var contenido = $("#probando").contents().find('html').prop('outerHTML');
-//                        $("textarea").text(contenido);
-//
-//                    });
+
                 });
             });
         </script>
