@@ -1,3 +1,4 @@
+
 <?php
 $directorioInicial = "./";    //Especifica el directorio a leer
 $rep = opendir($directorioInicial);    //Abrimos el directorio
@@ -46,10 +47,8 @@ if (isset($_POST['textarea'])) {
         <link rel='stylesheet' href="css/jquery-ui.theme.css">
         <link rel='stylesheet' href="css/jquery-ui.theme.min.css">
 
-        <!--Estilos propios-->
         <link rel="stylesheet" type="text/css" href="estiloP.css">
 
-        <!--Estilos Descargados-->
         <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -75,14 +74,13 @@ if (isset($_POST['textarea'])) {
 
         </form>
 
-        <!--Librerias para Jquery UI-->
-        <script src="js/jquery-ui.js"></script>
-        <script src="js/jquery-ui.min.js"></script>
-        <script src="dist/sweetalert.min.js"></script>
-
+        <script src="dist/sweetalert.min.js"></script> 
 
 
         <script type="text/javascript">
+
+
+
 
 
 
@@ -96,57 +94,85 @@ if (isset($_POST['textarea'])) {
                         duration: 1050
                     });
                 });
-
-
-
 //                Aqui cargamos el iframe llamando a su identificador
                 $("#probando").load(function () {
 
 //                    Cambiamos cualquier de todas las etiquetas aqui marcadas 
 //                      en las que se ha hecho click.
-                    $("#probando").contents().find("p,h1,h2,h3,h4,h5,h6,span").on("click", function () {
 
-
+                  $("#probando").contents().find("p,h1,h2,h3,h4,h5,h6,span").on("click", function (e) {
                         swal({
                             title: "Modificaciones",
-                            text: "Escribe tu nuevo texto:",
+                            text: "Escribe el nuevo texto:",
                             type: "input",
                             showCancelButton: true,
                             closeOnConfirm: false,
                             animation: "slide-from-top",
-                            inputPlaceholder: "Write something"}, function (inputValue) {
+                            inputPlaceholder: "Nuevo texto"},
+                        function (inputValue) {
                             if (inputValue === false)
                                 return false;
                             if (inputValue === "") {
-                                swal.showInputError("You need to write something!");
+                                swal.showInputError("¡No has escrito nada!");
                                 return false;
                             }
-                            swal("Nice!", "You wrote: " + inputValue, "success");
-                            $(this).text(inputValue);
+                            swal("¡Muy bien!", "Nuevo texto: " + inputValue, "success");
+                            $(e.target).text(inputValue);
                             var contenido = $("#probando").contents().find('html').prop('outerHTML');
                             $("textarea").text(contenido);
                         });
-
-
                     });
 
-//                    $("#probando").contents().find("p,h1,h2,h3,h4,h5,h6,span").on("click", function () {
-//
-//                        var textoIntroducido = prompt("Introduce el contenido nuevo: ");
-//                        $(this).text(textoIntroducido);
-//                        var contenido = $("#probando").contents().find('html').prop('outerHTML');
-//                        $("textarea").text(contenido);
-//                    });
 
 
 //                    Cambiamos la imagen al hacer click sobre ella, y poniendo la 
-//                    nueva ruta deseada
-                    $("#probando").contents().find("img").click(function () {
-                        $(this).attr('src', prompt('Introduce la nueva ruta de la imagen deseada :'));
-                        var contenido = $("#probando").contents().find('html').prop('outerHTML');
-                        $("textarea").text(contenido);
+//                    nueva ruta deseada.
+                    $("#probando").contents().find("img").on("click",function (e) {
+                        console.log(e);
+                        swal({
+                            title: "Nuevo archivo",
+                            text: "Escribe la nueva ruta:",
+                            type: "input",
+                            showCancelButton: true,
+                            closeOnConfirm: false,
+                            animation: "slide-from-top",
+                            inputPlaceholder: "Nuevo texto"},
+                        function (nuevaImagen) {
+                            if (nuevaImagen === false)
+                                return false;
+                            if (nuevaImagen === "") {
+                                swal.showInputError("¡No has escrito nada!");
+                                return false;
+                            }
+//                          
+//                         
+                            swal("¡Muy bien!", "Ruta de la nueva imagen: " + nuevaImagen, "success");
+                            $(e.target).attr('src', nuevaImagen);                         
+                            var contenido = $("#probando").contents().find('html').prop('outerHTML');
+                            $("textarea").text(contenido);
 
+
+
+
+                        });
                     });
+
+
+
+
+
+
+
+
+
+
+
+//                    $("#probando").contents().find("img").click(function () {
+//                        $(this).attr('src', prompt('Introduce la nueva ruta de la imagen deseada :'));
+//                        var contenido = $("#probando").contents().find('html').prop('outerHTML');
+//                        $("textarea").text(contenido);
+//
+//                    });
                 });
             });
         </script>
