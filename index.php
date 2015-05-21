@@ -4,11 +4,12 @@ $directorioInicial = "./";    //Especifica el directorio a leer
 $rep = opendir($directorioInicial);    //Abrimos el directorio
 echo "<div class='button' id='mostrar'>Mostrar archivos</div>";
 echo "<div id='acordeon' class='propiedadesCaja'>";
-echo "<ul id='listaPaginas'>";
+echo "<ul>";
 while ($todosArchivos = readdir($rep)) {  //Leemos el arreglo de archivos contenidos en el directorio: readdir recibe como parametro el directorio abierto
     if ($todosArchivos != '..' && $todosArchivos != '.' && $todosArchivos != '' && strpos($todosArchivos, '.html') && !is_dir($todosArchivos)) {
 
-        echo "<li><a id='listaPaginas2' href=" . $directorioInicial . "/" . $todosArchivos . " target='probando'>" . $todosArchivos . "</a></li>"; //Imprimimos el nombre del archivo con un link
+        echo "<li class='listaPaginas' ><a class='listado' href=" . $todosArchivos . " target='probando'>" . $todosArchivos . "</a></li>"; //Imprimimos el nombre del archivo con un link
+//    . $directorioInicial . "/"
     }
 }
 closedir($rep);     //Cerramos el directorio
@@ -17,8 +18,8 @@ echo "</ul>";
 echo "</div>";
 
 
-$url = $todosArchivos;
-        
+$url = "";
+
 
 if (isset($_POST['textarea'])) {
     // means submit clicked!
@@ -83,8 +84,8 @@ if (isset($_POST['textarea'])) {
 
 
 
-
-
+                
+                
 
             $(document).ready(function () {
 
@@ -105,10 +106,14 @@ if (isset($_POST['textarea'])) {
                         return false;
                     }
                 });
-                
-                $("#listaPaginas").click(function(e){
-                    var li = e.target.parentNode;
-                    alert(li);
+
+
+//                Con esto vamos a recoger en una variable cuando hagamos click en el fichero que queramos
+//                modificar su nombre
+                $(".listaPaginas").click(function (e) {
+                    
+                    var li = ($(e.target).attr("href"));
+                    console.log("li es igual a : "+li);
                 });
 
 
@@ -121,10 +126,10 @@ if (isset($_POST['textarea'])) {
 //                    Cambiamos cualquier de todas las etiquetas aqui marcadas 
 //                      en las que se ha hecho click.
 
-                    $("#probando").contents().find("p,h1,h2,h3,h4,h5,h6,span").on("click", function (e) {
+                    $("#probando").contents().find("p,h1,h2,h3,h4,h5,h6,span,ul,li,a").on("click", function (e) {
                         swal({
-                            title: "Modificaciones",
-                            text: "Escribe el nuevo texto:",
+                            title: "Nuevo texto",
+                            text: "Escribe el texto deseado:",
                             type: "input",
                             showCancelButton: true,
                             closeOnConfirm: false,
@@ -151,7 +156,7 @@ if (isset($_POST['textarea'])) {
                     $("#probando").contents().find("img").on("click", function (e) {
                         console.log(e);
                         swal({
-                            title: "Nuevo archivo",
+                            title: "Nueva imagen",
                             text: "Escribe la nueva ruta:",
                             type: "input",
                             showCancelButton: true,
