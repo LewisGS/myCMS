@@ -61,7 +61,7 @@
     height: 100%;
 }
 
-/*Propiedades del que contiene las lista de html*/
+/*Propiedades del que contiene el div de que contiene la lista de html's'*/
 .propiedadesCaja{
     background-color: #EBEBE2;
     text-emphasis: #333;
@@ -84,8 +84,4 @@
     box-shadow: 5px -9px 3px #333;
     -webkit-box-shadow: #666 0px 2px 3px;
     -moz-box-shadow: #666 0px 2px 3px;
-
-
-
-
 }
