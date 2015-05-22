@@ -1,5 +1,6 @@
 /*Propiedades que vamos a dar al boton para que tenga una visualizacion distinta*/
 .button{
+
     background:#e5e5e5;
     display:inline-block;
     margin:0 6px;
@@ -84,4 +85,13 @@
     box-shadow: 5px -9px 3px #333;
     -webkit-box-shadow: #666 0px 2px 3px;
     -moz-box-shadow: #666 0px 2px 3px;
+}
+
+.estiloParrafo{
+    font-size: 30px;
+    font-style: italic;
+    font-family:serif;
+    color: #2B2B2C;
+    padding: 10px;
+    text-shadow: 1px 0px 1px #101010, 1px 0px 0px #505050;
 }
