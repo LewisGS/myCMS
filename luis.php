@@ -139,7 +139,7 @@ if (isset($_POST['textarea'])) {
                                 return false;
                             if (inputValue === "") {
                                 swal.showInputError("¡No has escrito nada!");
-                                return false;
+                                return false
                             }
                             swal("¡Muy bien!", "Nuevo texto: " + inputValue, "success");
                             $(e.target).text(inputValue);
@@ -167,7 +167,7 @@ if (isset($_POST['textarea'])) {
                                 return false;
                             if (nuevaImagen === "") {
                                 swal.showInputError("¡No has escrito nada!");
-                                return false;
+                                return false
                             }
                             swal("¡Muy bien!", "Ruta de la nueva imagen: " + nuevaImagen, "success");
                             $(e.target).attr('src', nuevaImagen);
