@@ -62,7 +62,7 @@ if (isset($_POST['textarea'])) {
     </head>
     <body>
         <div>
-            <h1 class="estiloParrafo" >Haga "click" encima del contenido a modificar y confirme los cambios</h1>
+            <h1 class="estiloH1" >Haga "click" encima del contenido a modificar y confirme los cambios</h1>
         </div>
 
         
@@ -74,8 +74,8 @@ if (isset($_POST['textarea'])) {
             </div>
 
 
-            <div class="contenedor-responsive position">
-                <center><iframe  id="probando" src="<?php echo $url; ?>" scrolling="auto" height="700" width="700" marginheight="0" marginwidth="0" name="probando"></iframe></center>
+            <div class="contenedor-responsive ">
+                <iframe  id="probando" src="<?php echo $url; ?>" scrolling="auto" height="700" width="700" marginheight="0" marginwidth="0" name="probando"></iframe>
             </div>
             <textarea id="url" name="textareaPagina" rows="4" cols="50" style="display:none;"><?php echo $url; ?></textarea>
             <textarea id="contenido" name="textarea" rows="4" cols="50" style="display:none;"></textarea>
