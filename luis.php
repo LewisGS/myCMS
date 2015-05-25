@@ -38,7 +38,7 @@ if (isset($_POST['textarea'])) {
 
 //    cerramos el archivo y limpiamos la cache
     fclose($archivo);
-    clearstatcache();
+//    clearstatcache();
 }
 ?>
 
@@ -185,8 +185,7 @@ if (isset($_POST['textarea'])) {
 
                             //                    Cambiamos la imagen al hacer click sobre ella, y poniendo la 
                             //                    nueva ruta deseada.
-                            $("#probando").contents().find("img").on("click", function (e) {
-                                console.log(e);
+                            $("#probando").contents().find("img").on("click", function (e) {                              
                                 swal({
                                     title: "Nueva imagen",
                                     text: "Escribe la nueva ruta:",
