@@ -20,6 +20,15 @@ $("#" + identificador).hide();
 
 
 
+function notificacion()
+{
+    nombre = document.contactform.nombre;
+    email = document.contactform.email;
+    comentarios = document.contactform.comentarios;
+    
+    var notificacion = "";
+  
+}
 
 
 
