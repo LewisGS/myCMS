@@ -37,8 +37,6 @@ if (isset($_POST['textarea'])) {
 //    cerramos el archivo y limpiamos la cache
     fclose($archivo);
     clearstatcache();
-    
-    
 }
 ?>
 
@@ -89,19 +87,18 @@ if (isset($_POST['textarea'])) {
 
 
             <div>
-                <input class="button botonGuardar" id="botonGuardar" type="submit" name="submit" value="Confirmar cambios" onclick="refreshIframe();" />
+                <input class="button botonGuardar" id="botonGuardar" type="submit" name="submit" value="Confirmar cambios"  />
+
+                <input class="button" id="deshacer" type="button"  value="Deshacer cambios" disabled/>
+                <!--<button type="button" disabled>Click Me!</button>-->
             </div>
 
 
             <div class="contenedor-responsive ">
                 <iframe  id="probando" src="<?php echo $url; ?>"  name="probando"></iframe>
-
-
-
-
-
-
             </div>
+
+
             <textarea id="url" name="textareaPagina" rows="4" cols="50" style="display:none;"><?php echo $url; ?></textarea>
             <textarea id="contenido" name="textarea" rows="4" cols="50" style="display:none;"></textarea>
 
@@ -118,110 +115,127 @@ if (isset($_POST['textarea'])) {
 
 
 
+            $(document).ready(function () {
+
+                $("#deshacer").on("click", function () {
+                    swal({title: "¿Estas seguro?", text: "¡Dejaremos las cosas como al principio!",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "¡Si, eliminar!",
+                        cancelButtonText: "¡No, espera!",
+                        closeOnConfirm: false,
+                        closeOnCancel: false},
+                    function (isConfirm) {
+                        if (isConfirm) {
+                            swal("¡Volviendo atras!", "Las cosas estan como antes", "success");
+                            location.reload();
+                        } else {
+                            swal("¡Cancelar!", "Piensatelo mejor...", "error");
+                        }
+                    });
+
+                });
+
+
+                //                Primero escondemos la lista para que no se muestre hasta
+                //                que no hagamos "click" en el botón de mostrar
+                $("#acordeon").hide();
+                $("#mostrar").click(function () {
+                    $("#acordeon").toggle({
+                        duration: 1050
+                    });
+                });
+
+                //                Con esta funcion vamos a controlar que el textarea no se mande vacío
+                //                y nos quede la página en blanco
+                $("#botonGuardar").click(function () {
+                    if ($("#contenido").val().length < 1) {
+                        swal({title: "¡Cuidado!", text: "No has realizado ningun cambio"});
+                        return false;
+                    }
+                });
+
+                //
+                //                Esto nos va a permitir recoger en una variable el nombre del fichero
+                //                al que nosotros accedamos y despues meterlo en un textarea para mandarselo
+                //                al servidor
+                $(".listaPaginas").click(function (e) {
+                    var li = ($(e.target).attr("href"));
+                    $("#url").text(li);
+                    console.log($("textareaPagina").text());
+                });
+
+
+                //                Aqui cargamos el iframe llamando a su identificador
+                $("#probando").on('load', function () {
 
 
 
 
-                    $(document).ready(function () {
+                    //                    Cambiamos cualquier de todas las etiquetas aqui marcadas 
+                    //                      en las que se ha hecho click.
 
+                    $("#probando").contents().find("p,h1,h2,h3,h4,h5,h6,span,ul,li,a").on("click", function (e) {
 
+                        swal({
+                            title: "Nuevo texto",
+                            text: "Escribe el texto deseado:",
+                            type: "input",
+                            showCancelButton: true,
+                            closeOnConfirm: false,
+                            animation: "slide-from-top",
+                            inputPlaceholder: "Nuevo texto"},
+                        function (inputValue) {
 
-
-
-
-
-
-
-                        //                Primero escondemos la lista para que no se muestre hasta
-                        //                que no hagamos "click" en el botón de mostrar
-                        $("#acordeon").hide();
-                        $("#mostrar").click(function () {
-                            $("#acordeon").toggle({
-                                duration: 1050
-                            });
-                        });
-
-                        //                Con esta funcion vamos a controlar que el textarea no se mande vacío
-                        //                y nos quede la página en blanco
-                        $("#botonGuardar").click(function () {
-                            if ($("#contenido").val().length < 1) {
-                                swal({title: "¡Cuidado!", text: "No has realizado ningun cambio"});
+                            if (inputValue === false)
                                 return false;
+                            if (inputValue === "") {
+                                swal.showInputError("¡No has escrito nada!");
+                                return false
                             }
+                            swal("¡Muy bien!", "Nuevo texto: " + inputValue, "success");
+                            $(e.target).text(inputValue);
+                            $("#deshacer").prop("disabled", false);
+                            var contenido = $("#probando").contents().find('html').prop('outerHTML');
+                            $("#contenido").text(contenido);
+
                         });
 
-                        //
-                        //                Esto nos va a permitir recoger en una variable el nombre del fichero
-                        //                al que nosotros accedamos y despues meterlo en un textarea para mandarselo
-                        //                al servidor
-                        $(".listaPaginas").click(function (e) {
-                            var li = ($(e.target).attr("href"));
-                            $("#url").text(li);
-                            console.log($("textareaPagina").text());
-                        });
-
-
-                        //                Aqui cargamos el iframe llamando a su identificador
-                        $("#probando").on('load', function () {
+                    });
 
 
 
-                            //                    Cambiamos cualquier de todas las etiquetas aqui marcadas 
-                            //                      en las que se ha hecho click.
+                    //                    Cambiamos la imagen al hacer click sobre ella, y poniendo la 
+                    //                    nueva ruta deseada.
+                    $("#probando").contents().find("img").on("click", function (e) {
 
-                            $("#probando").contents().find("p,h1,h2,h3,h4,h5,h6,span,ul,li,a").on("click", function (e) {
-                                swal({
-                                    title: "Nuevo texto",
-                                    text: "Escribe el texto deseado:",
-                                    type: "input",
-                                    showCancelButton: true,
-                                    closeOnConfirm: false,
-                                    animation: "slide-from-top",
-                                    inputPlaceholder: "Nuevo texto"},
-                                function (inputValue) {
-                                    if (inputValue === false)
-                                        return false;
-                                    if (inputValue === "") {
-                                        swal.showInputError("¡No has escrito nada!");
-                                        return false
-                                    }
-                                    swal("¡Muy bien!", "Nuevo texto: " + inputValue, "success");
-                                    $(e.target).text(inputValue);
-                                    var contenido = $("#probando").contents().find('html').prop('outerHTML');
-                                    $("#contenido").text(contenido);
-                                });
-                                //                                       document.getElementById('probando').contentWindow.location.reload(true);
-                            });
+                        $("#deshacer").prop("disabled", false);
 
-
-
-                            //                    Cambiamos la imagen al hacer click sobre ella, y poniendo la 
-                            //                    nueva ruta deseada.
-                            $("#probando").contents().find("img").on("click", function (e) {
-                                swal({
-                                    title: "Nueva imagen",
-                                    text: "Escribe la nueva ruta:",
-                                    type: "input",
-                                    showCancelButton: true,
-                                    closeOnConfirm: false,
-                                    animation: "slide-from-top",
-                                    inputPlaceholder: "Nuevo texto"},
-                                function (nuevaImagen) {
-                                    if (nuevaImagen === false)
-                                        return false;
-                                    if (nuevaImagen === "") {
-                                        swal.showInputError("¡No has escrito nada!");
-                                        return false
-                                    }
-                                    swal("¡Muy bien!", "Ruta de la nueva imagen: " + nuevaImagen, "success");
-                                    $(e.target).attr('src', nuevaImagen);
-                                    var contenido = $("#probando").contents().find('html').prop('outerHTML');
-                                    $("#contenido").text(contenido);
-                                });
-                            });
-
+                        swal({
+                            title: "Nueva imagen",
+                            text: "Escribe la nueva ruta:",
+                            type: "input",
+                            showCancelButton: true,
+                            closeOnConfirm: false,
+                            animation: "slide-from-top",
+                            inputPlaceholder: "Nuevo texto"},
+                        function (nuevaImagen) {
+                            if (nuevaImagen === false)
+                                return false;
+                            if (nuevaImagen === "") {
+                                swal.showInputError("¡No has escrito nada!");
+                                return false
+                            }
+                            swal("¡Muy bien!", "Ruta de la nueva imagen: " + nuevaImagen, "success");
+                            $(e.target).attr('src', nuevaImagen);
+                            var contenido = $("#probando").contents().find('html').prop('outerHTML');
+                            $("#contenido").text(contenido);
                         });
                     });
+
+                });
+            });
         </script>
 
 
