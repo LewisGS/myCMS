@@ -113,10 +113,12 @@ if (isset($_POST['textarea'])) {
         <script type="text/javascript">
 
 
-
+        
 
             $(document).ready(function () {
-
+                
+//                Funcion que nos permite volver atras con los cambios por si 
+//                acaso no nos gusta lo que hemos escrito
                 $("#deshacer").on("click", function () {
                     swal({title: "¿Estas seguro?", text: "¡Dejaremos las cosas como al principio!",
                         type: "warning",
