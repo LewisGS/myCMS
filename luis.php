@@ -1,9 +1,7 @@
-
 <?php
+header("X-XSS-Protection: 0");
 
-  header("X-XSS-Protection: 0");
-  
-  
+
 $directorioInicial = "./";    //Especifica el directorio a leer
 $rep = opendir($directorioInicial);    //Abrimos el directorio
 echo "<div class='button' id='mostrar'>Mostrar archivos</div>";
@@ -13,11 +11,11 @@ while ($todosArchivos = readdir($rep)) {  //Leemos el arreglo de archivos conten
     if ($todosArchivos != '..' && $todosArchivos != '.' && $todosArchivos != '' && strpos($todosArchivos, '.html') && !is_dir($todosArchivos)) {
 
         echo "<li class='listaPaginas' ><a class='listado' href=" . $todosArchivos . " target='probando'>" . $todosArchivos . "</a></li>"; //Imprimimos el nombre del archivo con un link
-//    . $directorioInicial . "/"
     }
 }
 closedir($rep);     //Cerramos el directorio
 clearstatcache();    //Limpia la caché de estado de un archivo
+
 echo "</ul>";
 echo "</div>";
 
@@ -38,13 +36,15 @@ if (isset($_POST['textarea'])) {
 
 //    cerramos el archivo y limpiamos la cache
     fclose($archivo);
-//    clearstatcache();
+    clearstatcache();
+    
+    
 }
 ?>
 
 <html>
     <head>
-      
+
         <title>index</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,6 +65,10 @@ if (isset($_POST['textarea'])) {
 
 
 
+
+
+
+
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
         <meta http-Equiv="Cache-Control" Content="no-cache">
@@ -75,7 +79,8 @@ if (isset($_POST['textarea'])) {
     </head>
     <body>
         <div>
-            <h1 class="estiloH1" >Haga "click" encima del contenido a modificar y confirme los cambios</h1>
+            <h1 class="estiloH1">Haga "click" encima del contenido a modificar y confirme los cambios</h1>
+
         </div>
 
 
@@ -107,13 +112,20 @@ if (isset($_POST['textarea'])) {
 
 
 
+
         <script type="text/javascript">
 
-                    
+
+
+
+
 
 
 
                     $(document).ready(function () {
+
+
+
 
 
 
@@ -150,9 +162,9 @@ if (isset($_POST['textarea'])) {
 
 
                         //                Aqui cargamos el iframe llamando a su identificador
-                        $("#probando"). on('load', function () {
-                            
-                           
+                        $("#probando").on('load', function () {
+
+
 
                             //                    Cambiamos cualquier de todas las etiquetas aqui marcadas 
                             //                      en las que se ha hecho click.
@@ -178,14 +190,14 @@ if (isset($_POST['textarea'])) {
                                     var contenido = $("#probando").contents().find('html').prop('outerHTML');
                                     $("#contenido").text(contenido);
                                 });
-
+                                //                                       document.getElementById('probando').contentWindow.location.reload(true);
                             });
 
 
 
                             //                    Cambiamos la imagen al hacer click sobre ella, y poniendo la 
                             //                    nueva ruta deseada.
-                            $("#probando").contents().find("img").on("click", function (e) {                              
+                            $("#probando").contents().find("img").on("click", function (e) {
                                 swal({
                                     title: "Nueva imagen",
                                     text: "Escribe la nueva ruta:",
