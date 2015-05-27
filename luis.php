@@ -1,24 +1,31 @@
 <?php
 header("X-XSS-Protection: 0");
 
-
 $directorioInicial = "./";    //Especifica el directorio a leer
 $rep = opendir($directorioInicial);    //Abrimos el directorio
-echo "<div class='button' id='mostrar'>Mostrar archivos</div>";
-echo "<div id='acordeon' class='propiedadesCaja'>";
-echo "<ul>";
+
+$listaHtml = array();
+
 while ($todosArchivos = readdir($rep)) {  //Leemos el arreglo de archivos contenidos en el directorio: readdir recibe como parametro el directorio abierto
     if ($todosArchivos != '..' && $todosArchivos != '.' && $todosArchivos != '' && strpos($todosArchivos, '.html') && !is_dir($todosArchivos)) {
 
-        echo "<li class='listaPaginas' ><a class='listado' href=" . $todosArchivos . " target='probando'>" . $todosArchivos . "</a></li>"; //Imprimimos el nombre del archivo con un link
+        $listaHtml[] = $todosArchivos;
     }
 }
+
+//for ($x = 0; $x < count($listaHtml); $x++) {
+//            
+//   $listaHtml[$x] . "<br>";    
+//}
+//foreach ($listaHtml as $i) {
+//    echo $i . "<br>";
+//}
+//var_dump($listaHtml);
+
+
+
 closedir($rep);     //Cerramos el directorio
 clearstatcache();    //Limpia la caché de estado de un archivo
-
-echo "</ul>";
-echo "</div>";
-
 //    Declaracion de la variable "url" dandola una dirección inicial
 $url = "prueba2.html";
 
@@ -39,10 +46,8 @@ if (isset($_POST['textarea'])) {
     clearstatcache();
 }
 ?>
-
 <html>
     <head>
-
         <title>index</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,64 +64,100 @@ if (isset($_POST['textarea'])) {
         <link rel="stylesheet" type="text/css" href="LS-css/estilosCMS.css">
 
         <!--        Estilo para las ventanas modales emergentes-->
-        <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+        <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">   
 
-
-
-
-
-
+        <!--        Estilo del header-->
+        <link rel="stylesheet" type="text/css" href="LS-css/headerStyles.css">   
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+        <link href='http://weloveiconfonts.com/api/?family=entypo' rel='stylesheet' type='text/css'>
+
 
         <meta http-Equiv="Cache-Control" Content="no-cache">
         <meta http-Equiv="Pragma" Content="no-cache">
         <meta http-Equiv="Expires" Content="0">
-
-
     </head>
-    <body>
-        <div>
-            <h1 class="estiloH1">Haga "click" encima del contenido a modificar y confirme los cambios</h1>
 
+    <header>
+
+        <div>
+            <h1 class="estiloH1">Gestor de contenidos</h1>
+
+        </div>
+        
+
+    </header>
+
+
+    <body>
+
+
+
+
+        <input class="button " id="mostrar" type="button" name="mostrar" value="Mostrar archivos"  />
+
+
+        <div class="propiedadesCaja" id="acordeon">
+            <ul>
+
+                <?php foreach ($listaHtml as $i): ?>
+
+                    <li class="listaPaginas">
+                        <a class="listado" href="<?php echo $i; ?>" target="probando"><?php echo $i; ?></a>
+                    </li>                    
+                <?php endforeach; ?>
+
+            </ul>
         </div>
 
 
+
+
         <form id="formulario" name="formulario" action="" method="POST" enctype="multipart/form-data" > 
-
-
-
             <div>
                 <input class="button botonGuardar" id="botonGuardar" type="submit" name="submit" value="Confirmar cambios"  />
 
-                <input class="button" id="deshacer" type="button"  value="Deshacer cambios" disabled/>
+                <input class="" id="deshacer" type="button"  value="Deshacer cambios" disabled/>
                 <!--<button type="button" disabled>Click Me!</button>-->
             </div>
-
-
             <div class="contenedor-responsive ">
                 <iframe  id="probando" src="<?php echo $url; ?>"  name="probando"></iframe>
             </div>
-
-
             <textarea id="url" name="textareaPagina" rows="4" cols="50" style="display:none;"><?php echo $url; ?></textarea>
             <textarea id="contenido" name="textarea" rows="4" cols="50" style="display:none;"></textarea>
-
         </form>
+
+
+
+
+        <footer>
+            <div >
+
+
+
+
+
+
+            </div>
+        </footer>
 
         <!--Archivo de JavaScript que nos va a permitir utilizar las ventanas modales-->
         <script src="dist/sweetalert.min.js"></script>
 
-
+        <script src="LS-js/headerScript.js"></script>
 
 
         <script type="text/javascript">
 
 
-        
+
+
 
             $(document).ready(function () {
-                
+
 //                Funcion que nos permite volver atras con los cambios por si 
 //                acaso no nos gusta lo que hemos escrito
                 $("#deshacer").on("click", function () {
@@ -198,7 +239,8 @@ if (isset($_POST['textarea'])) {
                             }
                             swal("¡Muy bien!", "Nuevo texto: " + inputValue, "success");
                             $(e.target).text(inputValue);
-                            $("#deshacer").prop("disabled", false);
+                            $("#deshacer").prop("disabled", false).addClass("button");
+
                             var contenido = $("#probando").contents().find('html').prop('outerHTML');
                             $("#contenido").text(contenido);
 
@@ -211,9 +253,6 @@ if (isset($_POST['textarea'])) {
                     //                    Cambiamos la imagen al hacer click sobre ella, y poniendo la 
                     //                    nueva ruta deseada.
                     $("#probando").contents().find("img").on("click", function (e) {
-
-                        $("#deshacer").prop("disabled", false);
-
                         swal({
                             title: "Nueva imagen",
                             text: "Escribe la nueva ruta:",
@@ -231,8 +270,12 @@ if (isset($_POST['textarea'])) {
                             }
                             swal("¡Muy bien!", "Ruta de la nueva imagen: " + nuevaImagen, "success");
                             $(e.target).attr('src', nuevaImagen);
+                            $("#deshacer").prop("disabled", false);
                             var contenido = $("#probando").contents().find('html').prop('outerHTML');
+
                             $("#contenido").text(contenido);
+                            $("#deshacer").prop("disabled", false);
+
                         });
                     });
 
