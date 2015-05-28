@@ -29,6 +29,7 @@
     width: auto;
     height: auto;
     font-size: large;
+    margin-top: 1em;
 
     /*Bordes de la caja*/ 
     /*para Firefox*/
@@ -42,6 +43,46 @@
     box-shadow: 5px -9px 3px #333;
     -webkit-box-shadow: #666 0px 2px 3px;
     -moz-box-shadow: #666 0px 2px 3px;
+}
+
+
+
+ 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 1em;
+}
+ 
+li {
+  font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+  border-bottom: 1px solid #ccc;
+}
+ 
+li:last-child {
+  border: none;
+}
+ 
+li a {
+  text-decoration: none;
+  color: #000;
+  display: block;
+  width: 200px;
+ 
+  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+ 
+li a:hover {
+    width: auto;
+  font-size: 25px;
+  background: #a8c4c0;
+  -webkit-border-radius: 15px 15px 15px 15px;
+  padding-left: 3em;
+  
 }
 
 

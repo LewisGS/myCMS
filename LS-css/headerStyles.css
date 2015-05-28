@@ -25,6 +25,7 @@ header{
 /*Propiedades del texto (h1) de la cabecera*/
 h1 {  
     text-align: center;
+    
     background: #a8c4c0;
     background: -moz-linear-gradient(top,  #a8c4c0 0%, #7aa5a2 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a8c4c0), color-stop(100%,#7aa5a2));
