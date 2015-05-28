@@ -6,6 +6,8 @@
     padding-top: 30px;
     height: 0;
     overflow: hidden;
+       margin-bottom: 1em;
+          margin-top: 1em;
 }
 /*En esta parte hacemos responsive el iframe*/
 .contenedor-responsive iframe

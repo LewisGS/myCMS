@@ -77,12 +77,16 @@ if (isset($_POST['textarea'])) {
         <meta http-Equiv="Expires" Content="0">
     </head>
     <body>
-        <header>
-
-            <p>GESTOR DE CONTENIDOS</p>
-
-
-
+        <header>            
+            <a class="github" href="https://github.com/LewisGS/myCMS.git" target="_blank"><img src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+            <div class="container">
+                <h1>GESTOR DE CONTENIDOS</h1>
+            </div>
+            <p>Pulse para mostrar los archivos</p>
+            <p>Haga click en el elemento a modificar</p>
+            <p>Confirme sus cambios</p>
+            <p>Si no ve efectivos los cambios actualice la página</p>
+            
 
 
 

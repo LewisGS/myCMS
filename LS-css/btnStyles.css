@@ -1,50 +1,47 @@
-/*Propiedades que vamos a dar al boton para que tenga una visualizacion distinta*/
-.button{
-    
-    background:#e5e5e5;
-    display:inline-block;
-    margin:0 6px;
-    padding:7px 20px 7px;
-    color:#333;
-    text-decoration:none;
-    text-shadow: 0 1px 1px #FFF;
-    border:1px solid #ccc;    
-     /*En esta parte vamos a redondear los bordes del boton - Border Radius*/ 
-    -webkit-border-radius:4px;
-    -moz-border-radius:4px;
-    border-radius:4px;
-     /*Con estas propiedades crreamos un fondo degradado - Background Gradient*/ 
-    background:-webkit-linear-gradient(top, #fefefe, #e5e5e5); // Para que funcione esta propiedad en Chrome 10+ 
-    background: -moz-linear-gradient(top, #fefefe, #e5e5e5); // Para que funcione esta propiedad en Firefox 3.6+ 
-    background: -ms-linear-gradient(top, #fefefe, #e5e5e5); // Para que funcione esta propiedad en IE10 
-    background: linear-gradient(top, #fefefe, #e5e5e5);
-     /*Aplicamos sombras al boton - Box Shadow*/ 
-    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255, .3), inset 0 0 0 1px rgba(255,255,255, .6), 0 1px 2px rgba(0, 0, 0, .1);
-    -moz-box-shadow: inset 0 1px 0 rgba(255,255,255, .3), inset 0 0 0 1px rgba(255,255,255, .6), 0 1px 2px rgba(0, 0, 0, .1);
-    box-shadow: inset 0 1px 0 rgba(255,255,255, .3), inset 0 0 0 1px rgba(255,255,255, .6), 0 1px 2px rgba(0, 0, 0, .1);
-     /*Animacion - Transition*/ 
-    /*-webkit-transition: all ease-in-out .3s;*/
-    -moz-transition: all ease-in-out .3s;
-    transition: all ease-in-out .3s;
+/*Propiedades del boton*/
+.button {
+  margin: 0 0 5px;
+  padding: 0 12px;
+  height: 28px;
+  line-height: 28px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #555555;
+  text-decoration: none;
+  text-shadow: 0 1px white;
+  background: #dfdfdf;
+  border-width: 1px 1px 0;
+  border-style: solid;
+  border-color: #cecece #bababa #a8a8a8;
+  border-radius: 3px 3px 2px 2px;
+  outline: 0;
+  display: inline-block;
+  vertical-align: baseline;
+  zoom: 1;
+  *display: inline;
+  *vertical-align: auto;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  background-image: -webkit-linear-gradient(top, #f1f1f1 0%, #dfdfdf 70%, #dadada 100%);
+  background-image: -moz-linear-gradient(top, #f1f1f1 0%, #dfdfdf 70%, #dadada 100%);
+  background-image: -o-linear-gradient(top, #f1f1f1 0%, #dfdfdf 70%, #dadada 100%);
+  background-image: linear-gradient(to bottom, #f1f1f1 0%, #dfdfdf 70%, #dadada 100%);
+  -webkit-box-shadow: inset 0 1px #fdfdfd, inset 0 0 0 1px #eaeaea, 0 1px #a8a8a8, 0 3px #bbbbbb, 0 4px #a8a8a8, 0 5px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 1px #fdfdfd, inset 0 0 0 1px #eaeaea, 0 1px #a8a8a8, 0 3px #bbbbbb, 0 4px #a8a8a8, 0 5px 2px rgba(0, 0, 0, 0.25);
 }
 
-/*Efecto que tendra el boton cuando pasemos nuestro puntero por encima de el*/
-.button:hover{
-     /*Modificamos el color del borde*/ 
-    border-color:#adcce2; 
-
-     /*Cambiamos los colores del fondo degradado*/ 
-    background:-webkit-linear-gradient(top, #fefefe, #f1f1f1);  //Chrome 10+ 
-    background:   -moz-linear-gradient(top, #fefefe, #f1f1f1);  //Firefox 3.6+ 
-    background:    -ms-linear-gradient(top, #fefefe, #f1f1f1);  //IE10 
-    background:        linear-gradient(top, #fefefe, #f1f1f1);
-
-     /*Modificamos las propiedades del Box Shadow para dar efecto al boton*/ 
-    -webkit-box-shadow:inset 0 1px 0 rgba(255,255,255, .3), inset 0 0 0 1px rgba(255,255,255, .6), 0 1px 6px rgba(36, 168, 229, .3);
-    -moz-box-shadow:inset 0 1px 0 rgba(251,247,193, .3), inset 0 0 0 1px rgba(251,247,193, .3), 0 1px 6px rgba(36, 168, 229, .3);
-    box-shadow:inset 0 1px 0 rgba(251,247,193, .3), inset 0 0 0 1px rgba(251,247,193, .3), 0 1px 6px rgba(36, 168, 229, .3);
+.button:hover, .button:active {
+  background: #dfdfdf;
+  border-top-color: #c9c9c9;
 }
-
-
-
-
+/*Esto nos va a dar el efecto 3d al pulsarlo en los botones*/
+.button:active, .button:active {
+  vertical-align: -5px;
+  margin-bottom: 0;
+  padding: 1px 13px 0;
+  border-width: 0;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(0, 0, 0, 0.4), 0 1px white;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(0, 0, 0, 0.4), 0 1px white;
+}
