@@ -14,15 +14,25 @@
 /*Damos un color distinto a cada uno de los iconos al pasar el raton por encima de ellos*/
 #social .fb:hover{
     color: #3b5998;
+      
+  background: -webkit-linear-gradient(#3b5998, #23355B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 #social .gPlus:hover{
     color: #db4a39
 }
 #social .lkdIn:hover{
     color: #0e76a8;
+    background: -webkit-linear-gradient(#0e76a8, #084765);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 #social .twt:hover{
     color:  #00a0d1;
+  background: -webkit-linear-gradient(#00a0d1, #00607D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 /*Estilo letras copyright footer*/
 .copyright {
@@ -31,6 +41,6 @@
 }
 /*Color de fondo del footer*/
 footer {
-color: white;
-background: #333;
+    color: white;
+    background: #333;
 }

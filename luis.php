@@ -37,7 +37,7 @@ if (isset($_POST['textarea'])) {
 ?>
 <html>
     <head>
-        <title>index</title>
+        <title>Gestor</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -63,6 +63,7 @@ if (isset($_POST['textarea'])) {
 
         <link rel="stylesheet" type="text/css" href="LS-css/footerStyles.css"> 
 
+        <!--        Cogeremos de forma remota los iconos-->
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -75,57 +76,45 @@ if (isset($_POST['textarea'])) {
         <meta http-Equiv="Pragma" Content="no-cache">
         <meta http-Equiv="Expires" Content="0">
     </head>
-
-    <header>
-
-        <div>
-            <h1 class="estiloH1">Gestor de contenidos</h1>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </header>
     <body>
+        <header>
+
+            <p>GESTOR DE CONTENIDOS</p>
 
 
 
 
-        <input class="button " id="mostrar" type="button" name="mostrar" value="Mostrar archivos"  />
-
-
-        <div class="propiedadesCaja" id="acordeon">
-            <ul>
-
-                <?php foreach ($listaHtml as $i): ?>
-
-                    <li class="listaPaginas">
-                        <a class="listado" href="<?php echo $i; ?>" target="probando"><?php echo $i; ?></a>
-                    </li>                    
-                <?php endforeach; ?>
-
-            </ul>
-        </div>
 
 
 
+
+        </header>
 
         <form id="formulario" name="formulario" action="" method="POST" enctype="multipart/form-data" > 
-            <div>
-                <input class="button botonGuardar" id="botonGuardar" type="submit" name="submit" value="Confirmar cambios"  />
-
-                <input class="" id="deshacer" type="button"  value="Deshacer cambios" disabled/>
-                <!--<button type="button" disabled>Click Me!</button>-->
+            <div class="container">
+                <input class="button " id="mostrar" type="button" name="mostrar" value="Mostrar archivos"  />
+                <input class="button botonGuardar" id="botonGuardar" type="submit"  name="submit"  value="Confirmar cambios">
+                <input class="" id="deshacer" type="button"  value="Deshacer cambios" disabled/>                
             </div>
+
+            <div class="propiedadesCaja" id="acordeon">
+                <ul>
+
+                    <?php foreach ($listaHtml as $i): ?>
+
+                        <li class="listaPaginas">
+                            <a class="listado" href="<?php echo $i; ?>" target="probando"><?php echo $i; ?></a>
+                        </li>                    
+                    <?php endforeach; ?>
+
+                </ul>
+            </div>
+
+
+
+
+            <!--<button type="button" disabled>Click Me!</button>-->
+
             <div class="contenedor-responsive ">
                 <iframe  id="probando" src="<?php echo $url; ?>"  name="probando"></iframe>
             </div>
@@ -135,27 +124,23 @@ if (isset($_POST['textarea'])) {
 
 
 
-
         <footer>
             <div class="container">
-            <div class="copyright col-xs-12 col-sm-3 col-md-3">
-                Copyright © Salgado & Co. 2015
+                <div class="copyright col-xs-12 col-sm-3 col-md-3">
+                    Copyright © Salgado & Co. 2015
+                </div>
+
+                <div id="social">
+                    <i class="fa fa-facebook-square fa-4x fb"></i> <!-- range from fa-1x for small icon to 5x for larger icon -->
+                    <i class="fa fa-twitter-square fa-4x twt"></i>  <!-- range from fa-1x for small icon to 5x for larger icon -->
+                    <i class="fa fa-linkedin-square fa-4x lkdIn"></i> <!-- range from fa-1x for small icon to 5x for larger icon --> 
+                    <i class="fa fa-google-plus-square fa-4x gPlus"></i>  <!-- range from fa-1x for small icon to 5x for larger icon -->
+                </div>
+
             </div>
 
-            <div id="social">
-                <i class="fa fa-facebook-square fa-4x fb"></i> <!-- range from fa-1x for small icon to 5x for larger icon -->
-                <i class="fa fa-twitter-square fa-4x twt"></i>  <!-- range from fa-1x for small icon to 5x for larger icon -->
-                <i class="fa fa-linkedin-square fa-4x lkdIn"></i> <!-- range from fa-1x for small icon to 5x for larger icon --> 
-                <i class="fa fa-google-plus-square fa-4x gPlus"></i>  <!-- range from fa-1x for small icon to 5x for larger icon -->
-            </div>
 
 
-
-
-
-
-
-</div>
         </footer>
 
         <!--Archivo de JavaScript que nos va a permitir utilizar las ventanas modales-->
@@ -168,9 +153,6 @@ if (isset($_POST['textarea'])) {
 
 
         <script type="text/javascript">
-
-
-
 
 
             $(document).ready(function () {
@@ -299,8 +281,5 @@ if (isset($_POST['textarea'])) {
                 });
             });
         </script>
-
-
-
     </body>
 </html>

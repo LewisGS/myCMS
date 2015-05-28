@@ -1,29 +1,4 @@
-/*Estilo que le hemos dado a las letras de las instrucicones
-.estiloH1{
-    font-size: 30px;
-    font-style: italic;
-    font-family:serif;
-    color: #474744;
-    padding: 10px;
-    text-shadow: 1px 0px 1px #101010, 1px 0px 0px #505050;
-    text-align: center;
-}*/
-
-header {
-
-	background: #fff;
-	width: 100%;
-	height: 76px;
-	position: relative;
-	top: 0;
-	left: 0;
-	border-bottom: 2px solid #4C9CF1;
-	z-index: 100;
-
-}
-
 h1 {
-
 	font-size: 2em;
 	color: #2262AD;
 	line-height: 1.15em;
@@ -31,4 +6,26 @@ h1 {
 
 }
 
+header{
+    color: white;
+    background: #333;
+}
 
+
+header p {
+  font-family: 'Open Sans Condensed', sans-serif;
+  color:rgb(200,200,190); 
+  text-transform: uppercase;
+  text-decoration: overline;
+  font-size: 2em;
+  letter-spacing: 0.1em;
+  margin:auto;
+  text-align: center;
+  position: relative;
+  
+}
+
+
+header P:hover {
+  color: #F7BE3C;
+}
