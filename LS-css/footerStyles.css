@@ -1,0 +1,36 @@
+/*Propiedades de cada uno de los iconos*/
+#social{
+    width: 300px;
+    padding:20px;
+    margin:0 auto;
+    text-align: center;
+}
+
+/*Con esto cambiamos el color de los iconos*/
+#social .fa{
+    color:rgb(200,200,190); 
+}
+
+/*Damos un color distinto a cada uno de los iconos al pasar el raton por encima de ellos*/
+#social .fb:hover{
+    color: #3b5998;
+}
+#social .gPlus:hover{
+    color: #db4a39
+}
+#social .lkdIn:hover{
+    color: #0e76a8;
+}
+#social .twt:hover{
+    color:  #00a0d1;
+}
+/*Estilo letras copyright footer*/
+.copyright {
+    padding: 17px 0;
+    text-align: center;
+}
+/*Color de fondo del footer*/
+footer {
+color: white;
+background: #333;
+}

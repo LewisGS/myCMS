@@ -13,17 +13,6 @@ while ($todosArchivos = readdir($rep)) {  //Leemos el arreglo de archivos conten
     }
 }
 
-//for ($x = 0; $x < count($listaHtml); $x++) {
-//            
-//   $listaHtml[$x] . "<br>";    
-//}
-//foreach ($listaHtml as $i) {
-//    echo $i . "<br>";
-//}
-//var_dump($listaHtml);
-
-
-
 closedir($rep);     //Cerramos el directorio
 clearstatcache();    //Limpia la caché de estado de un archivo
 //    Declaracion de la variable "url" dandola una dirección inicial
@@ -67,14 +56,20 @@ if (isset($_POST['textarea'])) {
         <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">   
 
         <!--        Estilo del header-->
-        <link rel="stylesheet" type="text/css" href="LS-css/headerStyles.css">   
+        <link rel="stylesheet" type="text/css" href="LS-css/headerStyles.css"> 
+
+        <!--        Estilo botones-->
+        <link rel="stylesheet" type="text/css" href="LS-css/btnStyles.css">
+
+        <link rel="stylesheet" type="text/css" href="LS-css/footerStyles.css"> 
+
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
 
         <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
         <link href='http://weloveiconfonts.com/api/?family=entypo' rel='stylesheet' type='text/css'>
-
 
         <meta http-Equiv="Cache-Control" Content="no-cache">
         <meta http-Equiv="Pragma" Content="no-cache">
@@ -85,13 +80,21 @@ if (isset($_POST['textarea'])) {
 
         <div>
             <h1 class="estiloH1">Gestor de contenidos</h1>
-
         </div>
-        
+
+
+
+
+
+
+
+
+
+
+
+
 
     </header>
-
-
     <body>
 
 
@@ -134,20 +137,34 @@ if (isset($_POST['textarea'])) {
 
 
         <footer>
-            <div >
-
-
-
-
-
-
+            <div class="container">
+            <div class="copyright col-xs-12 col-sm-3 col-md-3">
+                Copyright © Salgado & Co. 2015
             </div>
+
+            <div id="social">
+                <i class="fa fa-facebook-square fa-4x fb"></i> <!-- range from fa-1x for small icon to 5x for larger icon -->
+                <i class="fa fa-twitter-square fa-4x twt"></i>  <!-- range from fa-1x for small icon to 5x for larger icon -->
+                <i class="fa fa-linkedin-square fa-4x lkdIn"></i> <!-- range from fa-1x for small icon to 5x for larger icon --> 
+                <i class="fa fa-google-plus-square fa-4x gPlus"></i>  <!-- range from fa-1x for small icon to 5x for larger icon -->
+            </div>
+
+
+
+
+
+
+
+</div>
         </footer>
 
         <!--Archivo de JavaScript que nos va a permitir utilizar las ventanas modales-->
         <script src="dist/sweetalert.min.js"></script>
 
         <script src="LS-js/headerScript.js"></script>
+        <script src="LS-js/bootstrap-datepicker.js"></script>
+        <script src="LS-js/bootstrap.min.js"></script>
+        <script src="LS-js/bootstrapValidator.min.js"></script>
 
 
         <script type="text/javascript">
@@ -199,7 +216,7 @@ if (isset($_POST['textarea'])) {
                     }
                 });
 
-                //
+
                 //                Esto nos va a permitir recoger en una variable el nombre del fichero
                 //                al que nosotros accedamos y despues meterlo en un textarea para mandarselo
                 //                al servidor
