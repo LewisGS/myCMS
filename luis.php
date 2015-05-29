@@ -3,12 +3,13 @@ header("X-XSS-Protection: 0");
 
 $directorioInicial = "./";    //Especifica el directorio a leer
 $rep = opendir($directorioInicial);    //Abrimos el directorio
-
+//Creación del array vacio
 $listaHtml = array();
 
 while ($todosArchivos = readdir($rep)) {  //Leemos el arreglo de archivos contenidos en el directorio: readdir recibe como parametro el directorio abierto
     if ($todosArchivos != '..' && $todosArchivos != '.' && $todosArchivos != '' && strpos($todosArchivos, '.html') && !is_dir($todosArchivos)) {
 
+//Introduccion dentro del array de todos los archivos encontrados
         $listaHtml[] = $todosArchivos;
     }
 }
@@ -82,11 +83,9 @@ if (isset($_POST['textarea'])) {
             <div class="container">
                 <h1>GESTOR DE CONTENIDOS</h1>
             </div>
-            <p>Pulse para mostrar los archivos</p>
             <p>Haga click en el elemento a modificar</p>
-            <p>Confirme sus cambios</p>
-            <p>Si no ve efectivos los cambios actualice la página</p>
             
+
 
 
 
