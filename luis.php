@@ -84,7 +84,7 @@ if (isset($_POST['textarea'])) {
                 <h1>GESTOR DE CONTENIDOS</h1>
             </div>
             <p>Haga click en el elemento a modificar</p>
-            
+
 
 
 
@@ -96,7 +96,7 @@ if (isset($_POST['textarea'])) {
         <form id="formulario" name="formulario" action="" method="POST" enctype="multipart/form-data" > 
             <div class="container">
                 <input class="button " id="mostrar" type="button" name="mostrar" value="Mostrar archivos"  />
-                <input class="button botonGuardar" id="botonGuardar" type="submit"  name="submit"  value="Confirmar cambios">
+                <input class=" botonGuardar" id="botonGuardar" type="submit"  name="submit"  value="Confirmar cambios" disabled>
                 <input class="" id="deshacer" type="button"  value="Deshacer cambios" disabled/>                
             </div>
 
@@ -141,6 +141,7 @@ if (isset($_POST['textarea'])) {
                 </div>
 
             </div>
+            <a class="go-top" href="#">Subir</a>
 
 
 
@@ -159,6 +160,34 @@ if (isset($_POST['textarea'])) {
 
 
             $(document).ready(function () {
+
+                $(window).scroll(function () {
+                    
+                    if ($(this).scrollTop() > 200) {
+                        
+                        $('.go-top').fadeIn(200);
+                        
+                    } else {
+                        
+                        $('.go-top').fadeOut(200);
+                       
+                    }
+                    
+                });
+                
+
+                
+                // Animate the scroll to top
+                
+                $('.go-top').click(function (event) {
+                    
+                    event.preventDefault();
+                    
+                    
+                    $('html, body').animate({scrollTop: 0}, 300);
+                    
+                });
+
 
 //                Funcion que nos permite volver atras con los cambios por si 
 //                acaso no nos gusta lo que hemos escrito
@@ -242,6 +271,7 @@ if (isset($_POST['textarea'])) {
                             swal("¡Muy bien!", "Nuevo texto: " + inputValue, "success");
                             $(e.target).text(inputValue);
                             $("#deshacer").prop("disabled", false).addClass("button");
+                            $("#botonGuardar").prop("disabled", false).addClass("button");
 
                             var contenido = $("#probando").contents().find('html').prop('outerHTML');
                             $("#contenido").text(contenido);
@@ -273,6 +303,7 @@ if (isset($_POST['textarea'])) {
                             swal("¡Muy bien!", "Ruta de la nueva imagen: " + nuevaImagen, "success");
                             $(e.target).attr('src', nuevaImagen);
                             $("#deshacer").prop("disabled", false);
+                            $("#botonGuardar").prop("disabled", false).addClass("button");
                             var contenido = $("#probando").contents().find('html').prop('outerHTML');
 
                             $("#contenido").text(contenido);

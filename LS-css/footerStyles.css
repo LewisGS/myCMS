@@ -14,10 +14,10 @@
 /*Damos un color distinto a cada uno de los iconos al pasar el raton por encima de ellos*/
 #social .fb:hover{
     color: #3b5998;
-      
-  background: -webkit-linear-gradient(#3b5998, #23355B);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+
+    background: -webkit-linear-gradient(#3b5998, #23355B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 #social .gPlus:hover{
     color: #db4a39
@@ -25,14 +25,14 @@
 #social .lkdIn:hover{
     color: #0e76a8;
     background: -webkit-linear-gradient(#0e76a8, #084765);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 #social .twt:hover{
     color:  #00a0d1;
-  background: -webkit-linear-gradient(#00a0d1, #00607D);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    background: -webkit-linear-gradient(#00a0d1, #00607D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 /*Estilo letras copyright footer*/
 .copyright {
@@ -43,4 +43,22 @@
 footer {
     color: white;
     background: #333;
+}
+
+/*propiedadesd el boton quu hemos creado para que nos suba arriba*/
+.go-top {
+    position: fixed;
+    bottom: 2em;
+    right: 2em;
+    text-decoration: none;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.3);
+    font-size: 12px;
+    padding: 1em;
+    display: none;
+}
+
+.go-top:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+
 }
