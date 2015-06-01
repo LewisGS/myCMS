@@ -14,7 +14,6 @@
 /*Damos un color distinto a cada uno de los iconos al pasar el raton por encima de ellos*/
 #social .fb:hover{
     color: #3b5998;
-
     background: -webkit-linear-gradient(#3b5998, #23355B);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -51,14 +50,20 @@ footer {
     bottom: 2em;
     right: 2em;
     text-decoration: none;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgb(200,200,190); 
+    /*    background-color: rgba(0, 0, 0, 0.3);*/
     font-size: 12px;
     padding: 1em;
     display: none;
+    border-radius: 14px 14px 14px 14px;
+    -moz-border-radius: 14px 14px 14px 14px;
+    -webkit-border-radius: 14px 14px 14px 14px;
 }
 
 .go-top:hover {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color :rgb(136, 166, 255);
+    border-radius: 49px 49px 49px 49px;
+    -moz-border-radius: 49px 49px 49px 49px;
+    -webkit-border-radius: 49px 49px 49px 49px;
 
 }

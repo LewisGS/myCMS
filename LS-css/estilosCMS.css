@@ -45,9 +45,6 @@
     -moz-box-shadow: #666 0px 2px 3px;
 }
 
-
-
- 
 ul {
   list-style-type: none;
   margin: 0;
@@ -85,7 +82,13 @@ li a:hover {
   
 }
 
+.pRoja{
+    color: red;
+}
 
+iframe{
+    box-shadow: #EBEBE2;
+}
 
 
 

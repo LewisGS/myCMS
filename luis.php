@@ -61,8 +61,11 @@ if (isset($_POST['textarea'])) {
 
         <!--        Estilo botones-->
         <link rel="stylesheet" type="text/css" href="LS-css/btnStyles.css">
-
+        <!--        Estilo del footer-->
         <link rel="stylesheet" type="text/css" href="LS-css/footerStyles.css"> 
+
+        <!--        Media query para el titulo-->
+        <link rel="stylesheet" type="text/css" href="LS-css/mediaQuery.css">
 
         <!--        Cogeremos de forma remota los iconos-->
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -78,25 +81,28 @@ if (isset($_POST['textarea'])) {
         <meta http-Equiv="Expires" Content="0">
     </head>
     <body>
-        <header>            
-            <a class="github" href="https://github.com/LewisGS/myCMS.git" target="_blank"><img src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+        <header> 
+        
+
+            <!--    Imagen que nos llevara al repositorio de GutHub-->
+            <a class="github" href="https://github.com/LewisGS/myCMS.git" target="_blank">
+                <img src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
+            </a>
+
             <div class="container">
-                <h1>GESTOR DE CONTENIDOS</h1>
+                <h1 id="titulo">GESTOR DE CONTENIDOS</h1>
             </div>
-            <p>Haga click en el elemento a modificar</p>
-
-
-
-
-
-
+            <div id="titulo">
+                <p>Haga click en el elemento a modificar</p>
+            </div>
 
         </header>
 
         <form id="formulario" name="formulario" action="" method="POST" enctype="multipart/form-data" > 
+
             <div class="container">
-                <input class="button " id="mostrar" type="button" name="mostrar" value="Mostrar archivos"  />
-                <input class=" botonGuardar" id="botonGuardar" type="submit"  name="submit"  value="Confirmar cambios" disabled>
+                <input class="button" id="mostrar" type="button" name="mostrar" value="Mostrar archivos"  />
+                <input class=" botonGuardar" id="botonGuardar" type="submit"  name="submit"  value="Confirmar cambios*" disabled>
                 <input class="" id="deshacer" type="button"  value="Deshacer cambios" disabled/>                
             </div>
 
@@ -107,22 +113,25 @@ if (isset($_POST['textarea'])) {
 
                         <li class="listaPaginas">
                             <a class="listado" href="<?php echo $i; ?>" target="probando"><?php echo $i; ?></a>
-                        </li>                    
+                        </li>   
+
                     <?php endforeach; ?>
 
                 </ul>
             </div>
 
-
+            <div class="pRoja"><p>*Si tu elemento no se ha modificado vuelve a cargar la página.</p></div>
 
 
             <!--<button type="button" disabled>Click Me!</button>-->
 
             <div class="contenedor-responsive ">
+
                 <iframe  id="probando" src="<?php echo $url; ?>"  name="probando"></iframe>
             </div>
             <textarea id="url" name="textareaPagina" rows="4" cols="50" style="display:none;"><?php echo $url; ?></textarea>
             <textarea id="contenido" name="textarea" rows="4" cols="50" style="display:none;"></textarea>
+
         </form>
 
 
@@ -141,7 +150,10 @@ if (isset($_POST['textarea'])) {
                 </div>
 
             </div>
-            <a class="go-top" href="#">Subir</a>
+
+            <div>
+                <a class="go-top">Subir</a>
+            </div>
 
 
 
@@ -161,31 +173,40 @@ if (isset($_POST['textarea'])) {
 
             $(document).ready(function () {
 
-                $(window).scroll(function () {
-                    
-                    if ($(this).scrollTop() > 200) {
-                        
-                        $('.go-top').fadeIn(200);
-                        
-                    } else {
-                        
-                        $('.go-top').fadeOut(200);
-                       
-                    }
-                    
-                });
-                
 
-                
-                // Animate the scroll to top
-                
+//              Le damos un efecto de salida distinto al h1
+                $("h1").hide().animate({
+                    rigth: "",
+                    width: "toggle"
+                }, 7000, function () {
+                });
+
+
+//            Apartado en el que se refresca el iframe cuando hacemos
+//            click en el botón de guardar.
+                $("#botonGuardar").click(function () {
+//                $('#probando').contentWindow.location.reload(true);
+                    location.reload();
+
+                });
+
+
+
+//          Aquí es donde le vamos a decir al boton cuando tiene que aparecer
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 200) {
+                        $('.go-top').fadeIn(200);
+                    } else {
+                        $('.go-top').fadeOut(200);
+                    }
+                });
+
+
+
+                // Este es el botón que nos va a devolver a la cabecera
                 $('.go-top').click(function (event) {
-                    
                     event.preventDefault();
-                    
-                    
                     $('html, body').animate({scrollTop: 0}, 300);
-                    
                 });
 
 
@@ -221,13 +242,19 @@ if (isset($_POST['textarea'])) {
                     });
                 });
 
+
+
+
                 //                Con esta funcion vamos a controlar que el textarea no se mande vacío
                 //                y nos quede la página en blanco
                 $("#botonGuardar").click(function () {
+
                     if ($("#contenido").val().length < 1) {
                         swal({title: "¡Cuidado!", text: "No has realizado ningun cambio"});
                         return false;
                     }
+
+//                    $("#probando").src = $("#probando").src;
                 });
 
 
@@ -243,8 +270,6 @@ if (isset($_POST['textarea'])) {
 
                 //                Aqui cargamos el iframe llamando a su identificador
                 $("#probando").on('load', function () {
-
-
 
 
                     //                    Cambiamos cualquier de todas las etiquetas aqui marcadas 
@@ -276,18 +301,18 @@ if (isset($_POST['textarea'])) {
                             var contenido = $("#probando").contents().find('html').prop('outerHTML');
                             $("#contenido").text(contenido);
 
+
                         });
 
                     });
-
 
 
                     //                    Cambiamos la imagen al hacer click sobre ella, y poniendo la 
                     //                    nueva ruta deseada.
                     $("#probando").contents().find("img").on("click", function (e) {
                         swal({
-                            title: "Nueva imagen",
-                            text: "Escribe la nueva ruta:",
+                            title: "Escribe la ruta de la imagen",
+                            text: "Ejemplo: carpeta/nombreImagen.jpg ",
                             type: "input",
                             showCancelButton: true,
                             closeOnConfirm: false,
