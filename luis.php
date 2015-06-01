@@ -81,8 +81,8 @@ if (isset($_POST['textarea'])) {
         <meta http-Equiv="Expires" Content="0">
     </head>
     <body>
-        <header> 
-        
+        <header > 
+
 
             <!--    Imagen que nos llevara al repositorio de GutHub-->
             <a class="github" href="https://github.com/LewisGS/myCMS.git" target="_blank">
@@ -166,15 +166,25 @@ if (isset($_POST['textarea'])) {
         <script src="LS-js/bootstrap-datepicker.js"></script>
         <script src="LS-js/bootstrap.min.js"></script>
         <script src="LS-js/bootstrapValidator.min.js"></script>
-
+        <script src="js/jquery-ui.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
 
         <script type="text/javascript">
 
 
             $(document).ready(function () {
+                
+                
+                
+                $("header").hide();
+
+               $( "header" ).show( "fold", 3500 );
+
+                
 
 
-//              Le damos un efecto de salida distinto al h1
+//              Le damos un efecto de salida distinto al h1 metiendo  los siguientes
+//              valores dentro de un objeto
                 $("h1").hide().animate({
                     rigth: "",
                     width: "toggle"
