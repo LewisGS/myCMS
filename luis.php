@@ -81,7 +81,8 @@ if (isset($_POST['textarea'])) {
         <meta http-Equiv="Expires" Content="0">
     </head>
     <body>
-        <header > 
+        <!--        Cabecera que permanecera oculta hasta que con JQuery la mostremos-->
+        <header style="display:none;"> 
 
 
             <!--    Imagen que nos llevara al repositorio de GutHub-->
@@ -98,6 +99,7 @@ if (isset($_POST['textarea'])) {
 
         </header>
 
+        <!--        Comienzo del formulario-->
         <form id="formulario" name="formulario" action="" method="POST" enctype="multipart/form-data" > 
 
             <div class="container">
@@ -107,11 +109,11 @@ if (isset($_POST['textarea'])) {
             </div>
 
             <div class="propiedadesCaja" id="acordeon">
-                <ul>
-
+                <ul class="contenedorUl">
+                    <!--     Código PHP incrustado en HTML que nos va a crear una lista con los archivos-->
                     <?php foreach ($listaHtml as $i): ?>
 
-                        <li class="listaPaginas">
+                        <li class="listaPaginas lista">
                             <a class="listado" href="<?php echo $i; ?>" target="probando"><?php echo $i; ?></a>
                         </li>   
 
@@ -142,24 +144,29 @@ if (isset($_POST['textarea'])) {
                     Copyright © Salgado & Co. 2015
                 </div>
 
+                <!--        Iconos de las redes sociales que tenemos en el pie de página-->
                 <div id="social">
-                    <i class="fa fa-facebook-square fa-4x fb"></i> <!-- range from fa-1x for small icon to 5x for larger icon -->
-                    <i class="fa fa-twitter-square fa-4x twt"></i>  <!-- range from fa-1x for small icon to 5x for larger icon -->
-                    <i class="fa fa-linkedin-square fa-4x lkdIn"></i> <!-- range from fa-1x for small icon to 5x for larger icon --> 
-                    <i class="fa fa-google-plus-square fa-4x gPlus"></i>  <!-- range from fa-1x for small icon to 5x for larger icon -->
+                    <i class="fa fa-facebook-square fa-4x fb"></i> 
+                    <i class="fa fa-twitter-square fa-4x twt"></i>  
+                    <i class="fa fa-linkedin-square fa-4x lkdIn"></i>
+                    <i class="fa fa-google-plus-square fa-4x gPlus"></i>  
                 </div>
 
             </div>
 
+            <!--    Botón que nos va a llevar de vuelta a la cabecera-->
             <div>
                 <a class="go-top">Subir</a>
             </div>
 
 
 
+            
+
+
         </footer>
 
-        <!--Archivo de JavaScript que nos va a permitir utilizar las ventanas modales-->
+        <!--        Archivo de JavaScript que nos va a permitir utilizar las ventanas modales-->
         <script src="dist/sweetalert.min.js"></script>
 
         <script src="LS-js/headerScript.js"></script>
@@ -171,24 +178,21 @@ if (isset($_POST['textarea'])) {
 
         <script type="text/javascript">
 
-
             $(document).ready(function () {
-                
-                
-                
-                $("header").hide();
 
-               $( "header" ).show( "fold", 3500 );
+//                Esto es lo que va a hacer que al mostrar la cabecera se haga ese efecto (fold)
+                $("header").show("fold", 3500);
 
-                
+
 
 
 //              Le damos un efecto de salida distinto al h1 metiendo  los siguientes
 //              valores dentro de un objeto
+
                 $("h1").hide().animate({
                     rigth: "",
                     width: "toggle"
-                }, 7000, function () {
+                }, 10000, function () {
                 });
 
 
