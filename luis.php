@@ -136,8 +136,6 @@ if (isset($_POST['textarea'])) {
 
         </form>
 
-
-
         <footer>
             <div class="container">
                 <div class="copyright col-xs-12 col-sm-3 col-md-3">
@@ -160,10 +158,6 @@ if (isset($_POST['textarea'])) {
             </div>
 
 
-
-            
-
-
         </footer>
 
         <!--        Archivo de JavaScript que nos va a permitir utilizar las ventanas modales-->
@@ -181,10 +175,7 @@ if (isset($_POST['textarea'])) {
             $(document).ready(function () {
 
 //                Esto es lo que va a hacer que al mostrar la cabecera se haga ese efecto (fold)
-                $("header").show("fold", 3500);
-
-
-
+                $("header").show("fold", 3500);                       
 
 //              Le damos un efecto de salida distinto al h1 metiendo  los siguientes
 //              valores dentro de un objeto
@@ -194,6 +185,7 @@ if (isset($_POST['textarea'])) {
                     width: "toggle"
                 }, 10000, function () {
                 });
+                
 
 
 //            Apartado en el que se refresca el iframe cuando hacemos
