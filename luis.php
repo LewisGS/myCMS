@@ -108,12 +108,12 @@ if (isset($_POST['textarea'])) {
                 <input class="" id="deshacer" type="button"  value="Deshacer cambios" disabled/>                
             </div>
 
-            <div class="propiedadesCaja" id="acordeon">
+            <div class="propiedadesCaja" id="acordeon" style="display:none;">
                 <ul class="contenedorUl">
                     <!--     Código PHP incrustado en HTML que nos va a crear una lista con los archivos-->
                     <?php foreach ($listaHtml as $i): ?>
 
-                        <li class="listaPaginas lista">
+                        <li class="listaPaginas lista" >
                             <a class="listado" href="<?php echo $i; ?>" target="probando"><?php echo $i; ?></a>
                         </li>   
 
@@ -157,12 +157,11 @@ if (isset($_POST['textarea'])) {
                 <a class="go-top">Subir</a>
             </div>
 
-
         </footer>
 
         <!--        Archivo de JavaScript que nos va a permitir utilizar las ventanas modales-->
         <script src="dist/sweetalert.min.js"></script>
-
+        
         <script src="LS-js/headerScript.js"></script>
         <script src="LS-js/bootstrap-datepicker.js"></script>
         <script src="LS-js/bootstrap.min.js"></script>
@@ -175,7 +174,8 @@ if (isset($_POST['textarea'])) {
             $(document).ready(function () {
 
 //                Esto es lo que va a hacer que al mostrar la cabecera se haga ese efecto (fold)
-                $("header").show("fold", 3500);                       
+                $("header").show("fold", 3500);
+                
 
 //              Le damos un efecto de salida distinto al h1 metiendo  los siguientes
 //              valores dentro de un objeto
@@ -185,8 +185,6 @@ if (isset($_POST['textarea'])) {
                     width: "toggle"
                 }, 10000, function () {
                 });
-                
-
 
 //            Apartado en el que se refresca el iframe cuando hacemos
 //            click en el botón de guardar.
@@ -196,8 +194,6 @@ if (isset($_POST['textarea'])) {
 
                 });
 
-
-
 //          Aquí es donde le vamos a decir al boton cuando tiene que aparecer
                 $(window).scroll(function () {
                     if ($(this).scrollTop() > 200) {
@@ -206,8 +202,6 @@ if (isset($_POST['textarea'])) {
                         $('.go-top').fadeOut(200);
                     }
                 });
-
-
 
                 // Este es el botón que nos va a devolver a la cabecera
                 $('.go-top').click(function (event) {
@@ -248,9 +242,6 @@ if (isset($_POST['textarea'])) {
                     });
                 });
 
-
-
-
                 //                Con esta funcion vamos a controlar que el textarea no se mande vacío
                 //                y nos quede la página en blanco
                 $("#botonGuardar").click(function () {
@@ -263,7 +254,6 @@ if (isset($_POST['textarea'])) {
 //                    $("#probando").src = $("#probando").src;
                 });
 
-
                 //                Esto nos va a permitir recoger en una variable el nombre del fichero
                 //                al que nosotros accedamos y despues meterlo en un textarea para mandarselo
                 //                al servidor
@@ -273,10 +263,8 @@ if (isset($_POST['textarea'])) {
                     console.log($("textareaPagina").text());
                 });
 
-
                 //                Aqui cargamos el iframe llamando a su identificador
                 $("#probando").on('load', function () {
-
 
                     //                    Cambiamos cualquier de todas las etiquetas aqui marcadas 
                     //                      en las que se ha hecho click.
@@ -334,6 +322,7 @@ if (isset($_POST['textarea'])) {
                             swal("¡Muy bien!", "Ruta de la nueva imagen: " + nuevaImagen, "success");
                             $(e.target).attr('src', nuevaImagen);
                             $("#deshacer").prop("disabled", false);
+                            $("#deshacer").prop("disabled", false).addClass("button");
                             $("#botonGuardar").prop("disabled", false).addClass("button");
                             var contenido = $("#probando").contents().find('html').prop('outerHTML');
 
